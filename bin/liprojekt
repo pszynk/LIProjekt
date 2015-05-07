@@ -1,0 +1,15 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
+import sys
+
+if __name__ == "__main__":
+    if len(sys.argv) > 1:
+        if sys.argv[1] == 'test':
+            from liprojekt.tests.tests import runTests
+            runTests()
+            sys.exit(0);
+    
+    from liprojekt.interface.interface import Interface
+    interf = Interface()
+    interf.main()

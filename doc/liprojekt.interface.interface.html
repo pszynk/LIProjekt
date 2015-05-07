@@ -1,0 +1,123 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module liprojekt.interface.interface</title>
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="liprojekt.html"><font color="#ffffff">liprojekt</font></a>.<a href="liprojekt.interface.html"><font color="#ffffff">interface</font></a>.interface</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/pawel/Programowanie/Lokalne_instalacje/lib/python2.7/site-packages/liprojekt/interface/interface.py">/home/pawel/Programowanie/Lokalne_instalacje/lib/python2.7/site-packages/liprojekt/interface/interface.py</a></font></td></tr></table>
+    <p><tt>Created&nbsp;on&nbsp;12-04-2013<br>
+&nbsp;<br>
+@author:&nbsp;pawel<br>
+&nbsp;<br>
+Moduł&nbsp;zawiera&nbsp;klasę&nbsp;<a href="#Interface">Interface</a>,&nbsp;która&nbsp;stanowi&nbsp;interfejs&nbsp;aplikacji</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="argparse.html">argparse</a><br>
+</td><td width="25%" valign=top><a href="logging.html">logging</a><br>
+</td><td width="25%" valign=top><a href="sys.html">sys</a><br>
+</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="__builtin__.html#object">__builtin__.object</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="liprojekt.interface.interface.html#Interface">Interface</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Interface">class <strong>Interface</strong></a>(<a href="__builtin__.html#object">__builtin__.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Klasa&nbsp;wczytuje&nbsp;polecenia&nbsp;z&nbsp;klini&nbsp;komend&nbsp;i&nbsp;prezentuje&nbsp;wyniki<br>
+weryfikacji&nbsp;spełnialności&nbsp;i&nbsp;czy&nbsp;formuła&nbsp;jest&nbsp;tautologią&nbsp;w&nbsp;rządany&nbsp;sposób<br>
+&nbsp;<br>
+usage:&nbsp;LIProjekt&nbsp;[-h]&nbsp;(-f&nbsp;FORMULA&nbsp;|&nbsp;-i&nbsp;INPUT&nbsp;|&nbsp;-l&nbsp;[{DEFAULT,WORD,SYMBOLIC}])<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-a&nbsp;{DEFAULT,WORD,SYMBOLIC}]&nbsp;[-o&nbsp;OUTPUT&nbsp;|&nbsp;-O&nbsp;OUTPUT]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-g&nbsp;GRAPH&nbsp;|&nbsp;-t]&nbsp;[-v]&nbsp;[-d]&nbsp;[--log&nbsp;LOG]<br>
+&nbsp;<br>
+optional&nbsp;arguments:<br>
+&nbsp;&nbsp;-h,&nbsp;--help&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;show&nbsp;this&nbsp;help&nbsp;message&nbsp;and&nbsp;exit<br>
+&nbsp;&nbsp;-f&nbsp;FORMULA,&nbsp;--formula&nbsp;FORMULA<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;formuła&nbsp;do&nbsp;weryfikacji&nbsp;(jezeli&nbsp;zawiera&nbsp;spacje&nbsp;nalezy<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;umiescic&nbsp;ja&nbsp;w&nbsp;"")&nbsp;(default:&nbsp;None)<br>
+&nbsp;&nbsp;-i&nbsp;INPUT,&nbsp;--input&nbsp;INPUT<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nazwa&nbsp;pliku&nbsp;z&nbsp;formula&nbsp;do&nbsp;weryfikacji&nbsp;(default:&nbsp;None)<br>
+&nbsp;&nbsp;-l&nbsp;[{DEFAULT,WORD,SYMBOLIC}],&nbsp;--legend&nbsp;[{DEFAULT,WORD,SYMBOLIC}]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;legenda&nbsp;znakow&nbsp;alfabetu&nbsp;(default:&nbsp;None)<br>
+&nbsp;&nbsp;-o&nbsp;OUTPUT,&nbsp;--output&nbsp;OUTPUT<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nazwa&nbsp;pliku&nbsp;do&nbsp;ktorego&nbsp;zapisany&nbsp;bedzie&nbsp;wynik<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;weryfikacji&nbsp;domyslnie&nbsp;na&nbsp;standardowe&nbsp;wyjscie&nbsp;(default:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;None)<br>
+&nbsp;&nbsp;-O&nbsp;OUTPUT,&nbsp;--Output&nbsp;OUTPUT<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nazwa&nbsp;pliku&nbsp;do&nbsp;ktorego&nbsp;zapisany&nbsp;bedzie&nbsp;wynik<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;weryfikacji&nbsp;domyslnie&nbsp;na&nbsp;standardowe&nbsp;wyjscie&nbsp;(default:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;None)<br>
+&nbsp;&nbsp;-g&nbsp;GRAPH,&nbsp;--graph&nbsp;GRAPH<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nazwa&nbsp;pliku&nbsp;w&nbsp;formacie&nbsp;.png&nbsp;z&nbsp;drzewem&nbsp;przetwarzania<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[NIE&nbsp;ZAIMPL.&nbsp;W&nbsp;TEJ&nbsp;WERSJI]&nbsp;(default:&nbsp;None)<br>
+&nbsp;&nbsp;-t,&nbsp;--text&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;czy&nbsp;zapisywac&nbsp;kroki&nbsp;przetwarzania&nbsp;w&nbsp;postaci&nbsp;teksowej<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(default:&nbsp;False)<br>
+&nbsp;<br>
+&nbsp;&nbsp;-a&nbsp;{DEFAULT,WORD,SYMBOLIC},&nbsp;--alphabet&nbsp;{DEFAULT,WORD,SYMBOLIC}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;zestaw&nbsp;znaków&nbsp;na&nbsp;do&nbsp;reprezentowania&nbsp;formuł<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;logicznych&nbsp;(default:&nbsp;DEFAULT)<br>
+&nbsp;<br>
+&nbsp;&nbsp;-v,&nbsp;--verbose&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;czy&nbsp;wypisywac&nbsp;dodatkowe&nbsp;informacje&nbsp;podczas&nbsp;dzialania<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;programu&nbsp;(default:&nbsp;False)<br>
+&nbsp;&nbsp;-d,&nbsp;--debug&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;czy&nbsp;wypisywac&nbsp;dodatkowe&nbsp;komunikaty&nbsp;DEBUG&nbsp;(default:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;False)<br>
+&nbsp;&nbsp;--log&nbsp;LOG&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nazwa&nbsp;pliku&nbsp;do&nbsp;którego&nbsp;wypisane&nbsp;zostana&nbsp;komunikaty<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(default:&nbsp;None)<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="Interface-__init__"><strong>__init__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Interface-getFormattedFormula"><strong>getFormattedFormula</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Interface-main"><strong>main</strong></a>(self)</dt><dd><tt>Wykonanie&nbsp;aplikacji<br>
+&nbsp;<br>
+1)&nbsp;parsuj&nbsp;argumenty&nbsp;wykonania<br>
+2)&nbsp;Sprawdz&nbsp;czy&nbsp;formuła&nbsp;jest&nbsp;spełńialna<br>
+3)&nbsp;&nbsp;Jeżeli&nbsp;formuła&nbsp;jest&nbsp;spełnialna&nbsp;to&nbsp;sprawdź&nbsp;czy&nbsp;jest&nbsp;tautologią<br>
+4)&nbsp;Prezentuj&nbsp;wyniki</tt></dd></dl>
+
+<dl><dt><a name="Interface-testRun"><strong>testRun</strong></a>(self, args)</dt><dd><tt>Testowe&nbsp;wykonanie&nbsp;aplikacji</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>ALPHABETS</strong> = {'DEFAULT': &lt;liprojekt.parsing.alphabets.SymbolicAlphabetMap object&gt;, 'SYMBOLIC': &lt;liprojekt.parsing.alphabets.SymbolicAlphabetMap object&gt;, 'WORD': &lt;liprojekt.parsing.alphabets.WordAlphabetMap object&gt;}</dl>
+
+<dl><dt><strong>ARGS</strong> = {'info': [(('-a', '--alphabet'), {'choices': ['DEFAULT', 'WORD', 'SYMBOLIC'], 'default': 'DEFAULT', 'help': 'zestaw znak<font color="#c040c0">\xc3\xb3</font>w na do reprezentowania formu<font color="#c040c0">\xc5\x82</font> logicznych', 'type': &lt;type 'str'&gt;})], 'logging': [(('-v', '--verbose'), {'action': 'store_true', 'help': 'czy wypisywac dodatkowe informacje podczas dzialania programu'}), (('-d', '--debug'), {'action': 'store_true', 'help': 'czy wypisywac dodatkowe komunikaty DEBUG'}), (('--log',), {'help': 'nazwa pliku do kt<font color="#c040c0">\xc3\xb3</font>rego wypisane zostana komunikaty', 'type': &lt;type 'str'&gt;})], 'output_file': [(('-o', '--output'), {'help': 'nazwa pliku do ktorego zapisany bedzie wynik weryfikacji domyslnie na standardowe wyjscie', 'type': &lt;type 'str'&gt;}), (('-O', '--Output'), {'help': 'nazwa pliku do ktorego zapisany bedzie wynik weryfikacji domyslnie na standardowe wyjscie', 'type': &lt;type 'str'&gt;})], 'output_type': [(('-g', '--graph'), {'help': 'nazwa pliku w formacie .png z drzewem przetwarzania [NIE ZAIMPL. W TEJ WERSJI]', 'type': &lt;type 'str'&gt;}), (('-t', '--text'), {'action': 'store_true', 'help': 'czy zapisywac kroki przetwarzania w postaci teksowej'})], 'tasks': [(('-f', '--formula'), {'help': 'formu<font color="#c040c0">\xc5\x82</font>a do weryfikacji (jezeli zawiera spacje nalezy umiescic ja w "")', 'type': &lt;type 'str'&gt;}), (('-i', '--input'), {'help': 'nazwa pliku z formula do weryfikacji', 'type': &lt;type 'str'&gt;}), (('-l', '--legend'), {'choices': ['DEFAULT', 'WORD', 'SYMBOLIC'], 'const': 'DEFAULT', 'help': 'legenda znakow alfabetu', 'nargs': '?', 'type': &lt;type 'str'&gt;})]}</dl>
+
+<dl><dt><strong>LINELENGTH</strong> = 120</dl>
+
+<dl><dt><strong>PROGRAM_NAME</strong> = 'LIProjekt'</dl>
+
+</td></tr></table></td></tr></table>
+</body></html>

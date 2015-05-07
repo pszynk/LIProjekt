@@ -1,0 +1,238 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module liprojekt.conversion.verification</title>
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="liprojekt.html"><font color="#ffffff">liprojekt</font></a>.<a href="liprojekt.conversion.html"><font color="#ffffff">conversion</font></a>.verification</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/pawel/Programowanie/Lokalne_instalacje/lib/python2.7/site-packages/liprojekt/conversion/verification.py">/home/pawel/Programowanie/Lokalne_instalacje/lib/python2.7/site-packages/liprojekt/conversion/verification.py</a></font></td></tr></table>
+    <p><tt>Created&nbsp;on&nbsp;20-03-2013<br>
+&nbsp;<br>
+@author:&nbsp;pawel<br>
+&nbsp;<br>
+&nbsp;<br>
+Moduł&nbsp;zawiera&nbsp;klasy&nbsp;weryfikujące&nbsp;spełnialność&nbsp;formuły&nbsp;i<br>
+czy&nbsp;formuła&nbsp;jest&nbsp;tautologią.</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="logging.html">logging</a><br>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="__builtin__.html#object">__builtin__.object</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="liprojekt.conversion.verification.html#FormulaVerifier">FormulaVerifier</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="liprojekt.conversion.verification.html#SatisfiabilityVerifier">SatisfiabilityVerifier</a>
+</font></dt><dt><font face="helvetica, arial"><a href="liprojekt.conversion.verification.html#ValidityVerifier">ValidityVerifier</a>
+</font></dt></dl>
+</dd>
+</dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="FormulaVerifier">class <strong>FormulaVerifier</strong></a>(<a href="__builtin__.html#object">__builtin__.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Klasa&nbsp;bazowa&nbsp;do&nbsp;weryfikacji&nbsp;formuł&nbsp;logicznych.<br>
+&nbsp;<br>
+Dziedziczą&nbsp;z&nbsp;niej&nbsp;klasy:<br>
+*&nbsp;<a href="#SatisfiabilityVerifier">SatisfiabilityVerifier</a>&nbsp;-&gt;&nbsp;do&nbsp;weryfikacji&nbsp;spełnilaności<br>
+*&nbsp;<a href="#ValidityVerifier">ValidityVerifier</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&gt;&nbsp;do&nbsp;weryfikacji&nbsp;czy&nbsp;formuła&nbsp;jest&nbsp;tautologią<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="FormulaVerifier-__init__"><strong>__init__</strong></a>(self, formula)</dt><dd><tt>jako&nbsp;argument&nbsp;brana&nbsp;jest&nbsp;formuła&nbsp;logiczna,&nbsp;czyli&nbsp;klasa&nbsp;formulas.Formula.<br>
+&nbsp;<br>
+Z&nbsp;formuły&nbsp;logicznej&nbsp;tworzony&nbsp;jest&nbsp;półprodukt&nbsp;Clause&nbsp;i&nbsp;umieszczany&nbsp;w&nbsp;korzeniu&nbsp;drzewa<br>
+recording.ClauseBinTree.</tt></dd></dl>
+
+<dl><dt><a name="FormulaVerifier-analyze"><strong>analyze</strong></a>(self)</dt><dd><tt>funkcja&nbsp;implementowana&nbsp;przez&nbsp;klasy&nbsp;<a href="#SatisfiabilityVerifier">SatisfiabilityVerifier</a>,&nbsp;<a href="#ValidityVerifier">ValidityVerifier</a><br>
+&nbsp;<br>
+analizuj&nbsp;wynik&nbsp;przy&nbsp;doprowadzeniu&nbsp;formuły&nbsp;pierwotnej&nbsp;do&nbsp;postaci&nbsp;CNF&nbsp;/&nbsp;DNF</tt></dd></dl>
+
+<dl><dt><a name="FormulaVerifier-endOnFailure"><strong>endOnFailure</strong></a>(self)</dt><dd><tt>funkcja&nbsp;implementowana&nbsp;przez&nbsp;klasy&nbsp;<a href="#SatisfiabilityVerifier">SatisfiabilityVerifier</a>,&nbsp;<a href="#ValidityVerifier">ValidityVerifier</a><br>
+&nbsp;<br>
+czy&nbsp;odkrycie&nbsp;Clause&nbsp;niepotwierdzającej&nbsp;tezy&nbsp;kończy&nbsp;walidację?</tt></dd></dl>
+
+<dl><dt><a name="FormulaVerifier-endOnSuccess"><strong>endOnSuccess</strong></a>(self)</dt><dd><tt>funkcja&nbsp;implementowana&nbsp;przez&nbsp;klasy&nbsp;<a href="#SatisfiabilityVerifier">SatisfiabilityVerifier</a>,&nbsp;<a href="#ValidityVerifier">ValidityVerifier</a><br>
+&nbsp;<br>
+czy&nbsp;odkrycie&nbsp;Clause&nbsp;potwierdzającej&nbsp;tezę&nbsp;kończy&nbsp;walidację?</tt></dd></dl>
+
+<dl><dt><a name="FormulaVerifier-generateRaport"><strong>generateRaport</strong></a>(self, fformatter, raportFormat, treeNodeFromat<font color="#909090">=None</font>)</dt><dd><tt>Generuje&nbsp;słowy&nbsp;raport&nbsp;z&nbsp;veryfikacji<br>
+&nbsp;<br>
+Raport&nbsp;można&nbsp;generować&nbsp;z&nbsp;wybranymi&nbsp;opcjami<br>
+{result}&nbsp;&nbsp;&nbsp;&nbsp;-&gt;&nbsp;wynik&nbsp;weryfikacji<br>
+{proof}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&gt;&nbsp;dowód&nbsp;na&nbsp;wynik&nbsp;weryfikacji<br>
+{valuation}&nbsp;-&gt;&nbsp;wartościowanie&nbsp;przy&nbsp;którym&nbsp;potwierdza&nbsp;się&nbsp;wynik&nbsp;walidacji<br>
+{tree}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&gt;&nbsp;przebieg&nbsp;konwersji</tt></dd></dl>
+
+<dl><dt><a name="FormulaVerifier-verifyFormula"><strong>verifyFormula</strong></a>(self)</dt><dd><tt>Weryfikuj&nbsp;formułę<br>
+&nbsp;<br>
+Zaczynamy&nbsp;od&nbsp;formuły&nbsp;pierwotnej&nbsp;przetworzonej&nbsp;na&nbsp;półprodukt&nbsp;Clause.<br>
+Odkładamy&nbsp;ją&nbsp;na&nbsp;stosie&nbsp;S.<br>
+Algorytm&nbsp;wygląda&nbsp;następująco:<br>
+1)&nbsp;Dopóki&nbsp;S&nbsp;nie&nbsp;jest&nbsp;puste:<br>
+2)&nbsp;&nbsp;&nbsp;&nbsp;s&nbsp;=&nbsp;S.pop()<br>
+3)&nbsp;&nbsp;&nbsp;&nbsp;(c)&nbsp;=&nbsp;konwertuj(s)&nbsp;lub&nbsp;(l,&nbsp;p)&nbsp;=&nbsp;konwertuj(s)<br>
+4)&nbsp;&nbsp;&nbsp;&nbsp;IF&nbsp;sprawdź&nbsp;czy&nbsp;c,&nbsp;(lub&nbsp;l,&nbsp;p)&nbsp;daje&nbsp;warunek&nbsp;STOP<br>
+5)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;zwróć&nbsp;SUKCES&nbsp;lub&nbsp;PORAŻKA<br>
+6)&nbsp;&nbsp;&nbsp;&nbsp;ELSE&nbsp;wrzuc&nbsp;c&nbsp;(lub&nbsp;l,&nbsp;p)&nbsp;na&nbsp;S<br>
+&nbsp;<br>
+UWAGA!!&nbsp;z&nbsp;Clause&nbsp;przy&nbsp;wykonywaniu&nbsp;Clause.convertStep()&nbsp;mogą&nbsp;powstać<br>
+dwa&nbsp;nowe&nbsp;obiekty&nbsp;Clause</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>success</strong></dt>
+<dd><tt>Czy&nbsp;udało&nbsp;się&nbsp;potwierdzić&nbsp;weryfikowaną&nbsp;tezę&nbsp;(spełnialność/tałtologia)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="SatisfiabilityVerifier">class <strong>SatisfiabilityVerifier</strong></a>(<a href="liprojekt.conversion.verification.html#FormulaVerifier">FormulaVerifier</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="liprojekt.conversion.verification.html#SatisfiabilityVerifier">SatisfiabilityVerifier</a></dd>
+<dd><a href="liprojekt.conversion.verification.html#FormulaVerifier">FormulaVerifier</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="SatisfiabilityVerifier-analyze"><strong>analyze</strong></a>(self)</dt><dd><tt>Formuła&nbsp;jest&nbsp;spełnialna&nbsp;o&nbsp;ile&nbsp;udało&nbsp;się&nbsp;znaleźć&nbsp;chociaż&nbsp;jedną&nbsp;Clause<br>
+potwierdzajacą&nbsp;tezę.</tt></dd></dl>
+
+<dl><dt><a name="SatisfiabilityVerifier-endOnFailure"><strong>endOnFailure</strong></a>(self)</dt><dd><tt>Odkrycie&nbsp;Clause&nbsp;NIEpotwierdzającej&nbsp;tezy&nbsp;NIE&nbsp;kończy&nbsp;walidacji!</tt></dd></dl>
+
+<dl><dt><a name="SatisfiabilityVerifier-endOnSuccess"><strong>endOnSuccess</strong></a>(self)</dt><dd><tt>Odkrycie&nbsp;Clause&nbsp;potwierdzającej&nbsp;tezę&nbsp;kończy&nbsp;walidacji!</tt></dd></dl>
+
+<hr>
+Methods inherited from <a href="liprojekt.conversion.verification.html#FormulaVerifier">FormulaVerifier</a>:<br>
+<dl><dt><a name="SatisfiabilityVerifier-__init__"><strong>__init__</strong></a>(self, formula)</dt><dd><tt>jako&nbsp;argument&nbsp;brana&nbsp;jest&nbsp;formuła&nbsp;logiczna,&nbsp;czyli&nbsp;klasa&nbsp;formulas.Formula.<br>
+&nbsp;<br>
+Z&nbsp;formuły&nbsp;logicznej&nbsp;tworzony&nbsp;jest&nbsp;półprodukt&nbsp;Clause&nbsp;i&nbsp;umieszczany&nbsp;w&nbsp;korzeniu&nbsp;drzewa<br>
+recording.ClauseBinTree.</tt></dd></dl>
+
+<dl><dt><a name="SatisfiabilityVerifier-generateRaport"><strong>generateRaport</strong></a>(self, fformatter, raportFormat, treeNodeFromat<font color="#909090">=None</font>)</dt><dd><tt>Generuje&nbsp;słowy&nbsp;raport&nbsp;z&nbsp;veryfikacji<br>
+&nbsp;<br>
+Raport&nbsp;można&nbsp;generować&nbsp;z&nbsp;wybranymi&nbsp;opcjami<br>
+{result}&nbsp;&nbsp;&nbsp;&nbsp;-&gt;&nbsp;wynik&nbsp;weryfikacji<br>
+{proof}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&gt;&nbsp;dowód&nbsp;na&nbsp;wynik&nbsp;weryfikacji<br>
+{valuation}&nbsp;-&gt;&nbsp;wartościowanie&nbsp;przy&nbsp;którym&nbsp;potwierdza&nbsp;się&nbsp;wynik&nbsp;walidacji<br>
+{tree}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&gt;&nbsp;przebieg&nbsp;konwersji</tt></dd></dl>
+
+<dl><dt><a name="SatisfiabilityVerifier-verifyFormula"><strong>verifyFormula</strong></a>(self)</dt><dd><tt>Weryfikuj&nbsp;formułę<br>
+&nbsp;<br>
+Zaczynamy&nbsp;od&nbsp;formuły&nbsp;pierwotnej&nbsp;przetworzonej&nbsp;na&nbsp;półprodukt&nbsp;Clause.<br>
+Odkładamy&nbsp;ją&nbsp;na&nbsp;stosie&nbsp;S.<br>
+Algorytm&nbsp;wygląda&nbsp;następująco:<br>
+1)&nbsp;Dopóki&nbsp;S&nbsp;nie&nbsp;jest&nbsp;puste:<br>
+2)&nbsp;&nbsp;&nbsp;&nbsp;s&nbsp;=&nbsp;S.pop()<br>
+3)&nbsp;&nbsp;&nbsp;&nbsp;(c)&nbsp;=&nbsp;konwertuj(s)&nbsp;lub&nbsp;(l,&nbsp;p)&nbsp;=&nbsp;konwertuj(s)<br>
+4)&nbsp;&nbsp;&nbsp;&nbsp;IF&nbsp;sprawdź&nbsp;czy&nbsp;c,&nbsp;(lub&nbsp;l,&nbsp;p)&nbsp;daje&nbsp;warunek&nbsp;STOP<br>
+5)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;zwróć&nbsp;SUKCES&nbsp;lub&nbsp;PORAŻKA<br>
+6)&nbsp;&nbsp;&nbsp;&nbsp;ELSE&nbsp;wrzuc&nbsp;c&nbsp;(lub&nbsp;l,&nbsp;p)&nbsp;na&nbsp;S<br>
+&nbsp;<br>
+UWAGA!!&nbsp;z&nbsp;Clause&nbsp;przy&nbsp;wykonywaniu&nbsp;Clause.convertStep()&nbsp;mogą&nbsp;powstać<br>
+dwa&nbsp;nowe&nbsp;obiekty&nbsp;Clause</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="liprojekt.conversion.verification.html#FormulaVerifier">FormulaVerifier</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>success</strong></dt>
+<dd><tt>Czy&nbsp;udało&nbsp;się&nbsp;potwierdzić&nbsp;weryfikowaną&nbsp;tezę&nbsp;(spełnialność/tałtologia)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="ValidityVerifier">class <strong>ValidityVerifier</strong></a>(<a href="liprojekt.conversion.verification.html#FormulaVerifier">FormulaVerifier</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="liprojekt.conversion.verification.html#ValidityVerifier">ValidityVerifier</a></dd>
+<dd><a href="liprojekt.conversion.verification.html#FormulaVerifier">FormulaVerifier</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="ValidityVerifier-analyze"><strong>analyze</strong></a>(self)</dt><dd><tt>Formuła&nbsp;jest&nbsp;tautologią&nbsp;o&nbsp;ile&nbsp;nie&nbsp;znaleziono&nbsp;ANI&nbsp;JEDNEJ&nbsp;Clause<br>
+zaprzeczającej&nbsp;tezie.</tt></dd></dl>
+
+<dl><dt><a name="ValidityVerifier-endOnFailure"><strong>endOnFailure</strong></a>(self)</dt><dd><tt>Odkrycie&nbsp;Clause&nbsp;NIEpotwierdzającej&nbsp;tezę&nbsp;kończy&nbsp;walidacji!</tt></dd></dl>
+
+<dl><dt><a name="ValidityVerifier-endOnSuccess"><strong>endOnSuccess</strong></a>(self)</dt><dd><tt>Odkrycie&nbsp;Clause&nbsp;potwierdzającej&nbsp;tezę&nbsp;NIE&nbsp;kończy&nbsp;walidacji!</tt></dd></dl>
+
+<hr>
+Methods inherited from <a href="liprojekt.conversion.verification.html#FormulaVerifier">FormulaVerifier</a>:<br>
+<dl><dt><a name="ValidityVerifier-__init__"><strong>__init__</strong></a>(self, formula)</dt><dd><tt>jako&nbsp;argument&nbsp;brana&nbsp;jest&nbsp;formuła&nbsp;logiczna,&nbsp;czyli&nbsp;klasa&nbsp;formulas.Formula.<br>
+&nbsp;<br>
+Z&nbsp;formuły&nbsp;logicznej&nbsp;tworzony&nbsp;jest&nbsp;półprodukt&nbsp;Clause&nbsp;i&nbsp;umieszczany&nbsp;w&nbsp;korzeniu&nbsp;drzewa<br>
+recording.ClauseBinTree.</tt></dd></dl>
+
+<dl><dt><a name="ValidityVerifier-generateRaport"><strong>generateRaport</strong></a>(self, fformatter, raportFormat, treeNodeFromat<font color="#909090">=None</font>)</dt><dd><tt>Generuje&nbsp;słowy&nbsp;raport&nbsp;z&nbsp;veryfikacji<br>
+&nbsp;<br>
+Raport&nbsp;można&nbsp;generować&nbsp;z&nbsp;wybranymi&nbsp;opcjami<br>
+{result}&nbsp;&nbsp;&nbsp;&nbsp;-&gt;&nbsp;wynik&nbsp;weryfikacji<br>
+{proof}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&gt;&nbsp;dowód&nbsp;na&nbsp;wynik&nbsp;weryfikacji<br>
+{valuation}&nbsp;-&gt;&nbsp;wartościowanie&nbsp;przy&nbsp;którym&nbsp;potwierdza&nbsp;się&nbsp;wynik&nbsp;walidacji<br>
+{tree}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&gt;&nbsp;przebieg&nbsp;konwersji</tt></dd></dl>
+
+<dl><dt><a name="ValidityVerifier-verifyFormula"><strong>verifyFormula</strong></a>(self)</dt><dd><tt>Weryfikuj&nbsp;formułę<br>
+&nbsp;<br>
+Zaczynamy&nbsp;od&nbsp;formuły&nbsp;pierwotnej&nbsp;przetworzonej&nbsp;na&nbsp;półprodukt&nbsp;Clause.<br>
+Odkładamy&nbsp;ją&nbsp;na&nbsp;stosie&nbsp;S.<br>
+Algorytm&nbsp;wygląda&nbsp;następująco:<br>
+1)&nbsp;Dopóki&nbsp;S&nbsp;nie&nbsp;jest&nbsp;puste:<br>
+2)&nbsp;&nbsp;&nbsp;&nbsp;s&nbsp;=&nbsp;S.pop()<br>
+3)&nbsp;&nbsp;&nbsp;&nbsp;(c)&nbsp;=&nbsp;konwertuj(s)&nbsp;lub&nbsp;(l,&nbsp;p)&nbsp;=&nbsp;konwertuj(s)<br>
+4)&nbsp;&nbsp;&nbsp;&nbsp;IF&nbsp;sprawdź&nbsp;czy&nbsp;c,&nbsp;(lub&nbsp;l,&nbsp;p)&nbsp;daje&nbsp;warunek&nbsp;STOP<br>
+5)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;zwróć&nbsp;SUKCES&nbsp;lub&nbsp;PORAŻKA<br>
+6)&nbsp;&nbsp;&nbsp;&nbsp;ELSE&nbsp;wrzuc&nbsp;c&nbsp;(lub&nbsp;l,&nbsp;p)&nbsp;na&nbsp;S<br>
+&nbsp;<br>
+UWAGA!!&nbsp;z&nbsp;Clause&nbsp;przy&nbsp;wykonywaniu&nbsp;Clause.convertStep()&nbsp;mogą&nbsp;powstać<br>
+dwa&nbsp;nowe&nbsp;obiekty&nbsp;Clause</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="liprojekt.conversion.verification.html#FormulaVerifier">FormulaVerifier</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>success</strong></dt>
+<dd><tt>Czy&nbsp;udało&nbsp;się&nbsp;potwierdzić&nbsp;weryfikowaną&nbsp;tezę&nbsp;(spełnialność/tałtologia)</tt></dd>
+</dl>
+</td></tr></table></td></tr></table>
+</body></html>

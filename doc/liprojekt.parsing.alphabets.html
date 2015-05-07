@@ -1,0 +1,197 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module liprojekt.parsing.alphabets</title>
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="liprojekt.html"><font color="#ffffff">liprojekt</font></a>.<a href="liprojekt.parsing.html"><font color="#ffffff">parsing</font></a>.alphabets</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/pawel/Programowanie/Lokalne_instalacje/lib/python2.7/site-packages/liprojekt/parsing/alphabets.py">/home/pawel/Programowanie/Lokalne_instalacje/lib/python2.7/site-packages/liprojekt/parsing/alphabets.py</a></font></td></tr></table>
+    <p><tt>Created&nbsp;on&nbsp;02-03-2013<br>
+&nbsp;<br>
+@author:&nbsp;pawel<br>
+&nbsp;<br>
+Moduł&nbsp;zawoerakący&nbsp;klasy&nbsp;reprezentujące&nbsp;możliwe&nbsp;alfabety<br>
+w&nbsp;jakimi&nbsp;zapisane&nbsp;są&nbsp;formuły&nbsp;logiczne&nbsp;podawane&nbsp;przez&nbsp;urzytkownika</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="__builtin__.html#object">__builtin__.object</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="liprojekt.parsing.alphabets.html#AlphabetMap">AlphabetMap</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="liprojekt.parsing.alphabets.html#SymbolicAlphabetMap">SymbolicAlphabetMap</a>
+</font></dt><dt><font face="helvetica, arial"><a href="liprojekt.parsing.alphabets.html#WordAlphabetMap">WordAlphabetMap</a>
+</font></dt></dl>
+</dd>
+</dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="AlphabetMap">class <strong>AlphabetMap</strong></a>(<a href="__builtin__.html#object">__builtin__.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Wirtualna&nbsp;klasa&nbsp;reorezentująca&nbsp;alfabet,&nbsp;składnię&nbsp;formuł&nbsp;logicznych<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="AlphabetMap-getConstantSymbol"><strong>getConstantSymbol</strong></a>(self, key)</dt><dd><tt>zwraca&nbsp;rządany&nbsp;symbol&nbsp;operatora,&nbsp;jeżeli&nbsp;nie&nbsp;ma&nbsp;takiego&nbsp;symbolu&nbsp;stałej&nbsp;logicznej<br>
+w&nbsp;alfabecie,&nbsp;rzucany&nbsp;jest&nbsp;wyjątek</tt></dd></dl>
+
+<dl><dt><a name="AlphabetMap-getConstants"><strong>getConstants</strong></a>(self)</dt><dd><tt>zwraca&nbsp;mapę&nbsp;symboli&nbsp;stałych&nbsp;logicznych</tt></dd></dl>
+
+<dl><dt><a name="AlphabetMap-getLegend"><strong>getLegend</strong></a>(self)</dt><dd><tt>Zwraca&nbsp;legende&nbsp;alfabetu&nbsp;w&nbsp;postaci&nbsp;łańcycha&nbsp;znaków</tt></dd></dl>
+
+<dl><dt><a name="AlphabetMap-getNotFormat"><strong>getNotFormat</strong></a>(self)</dt><dd><tt>zwraca&nbsp;format&nbsp;operatora&nbsp;zaprzeczenia</tt></dd></dl>
+
+<dl><dt><a name="AlphabetMap-getOperatorSymbol"><strong>getOperatorSymbol</strong></a>(self, key)</dt><dd><tt>zwraca&nbsp;rządany&nbsp;symbol&nbsp;operatora,&nbsp;jeżeli&nbsp;nie&nbsp;ma&nbsp;takiego&nbsp;operatora<br>
+w&nbsp;alfabecie,&nbsp;rzucany&nbsp;jest&nbsp;wyjątek</tt></dd></dl>
+
+<dl><dt><a name="AlphabetMap-getOperators"><strong>getOperators</strong></a>(self)</dt><dd><tt>zwraca&nbsp;mapę&nbsp;symboli&nbsp;operatorów&nbsp;logicznych</tt></dd></dl>
+
+<dl><dt><a name="AlphabetMap-getParenthesis"><strong>getParenthesis</strong></a>(self)</dt><dd><tt>zwraca&nbsp;mapę&nbsp;symboli&nbsp;nawiasów</tt></dd></dl>
+
+<dl><dt><a name="AlphabetMap-getParenthesisSymbol"><strong>getParenthesisSymbol</strong></a>(self, key)</dt><dd><tt>zwraca&nbsp;rządany&nbsp;symbol&nbsp;nawiasu,&nbsp;jeżeli&nbsp;nie&nbsp;ma&nbsp;takiego&nbsp;symbolu&nbsp;nawiasu<br>
+w&nbsp;alfabecie,&nbsp;rzucany&nbsp;jest&nbsp;wyjątek</tt></dd></dl>
+
+<dl><dt><a name="AlphabetMap-notNeedSpace"><strong>notNeedSpace</strong></a>(self)</dt></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="SymbolicAlphabetMap">class <strong>SymbolicAlphabetMap</strong></a>(<a href="liprojekt.parsing.alphabets.html#AlphabetMap">AlphabetMap</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Składnia&nbsp;oparta&nbsp;na&nbsp;symbolach<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="liprojekt.parsing.alphabets.html#SymbolicAlphabetMap">SymbolicAlphabetMap</a></dd>
+<dd><a href="liprojekt.parsing.alphabets.html#AlphabetMap">AlphabetMap</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>CONSTANTS</strong> = {'false': 'F', 'true': 'T'}</dl>
+
+<dl><dt><strong>NAME</strong> = 'Sk<font color="#c040c0">\xc5\x82</font>adnia znakowa'</dl>
+
+<dl><dt><strong>NOT_FORMAT</strong> = '{not}{subformula}'</dl>
+
+<dl><dt><strong>NOT_NEED_SPACE</strong> = False</dl>
+
+<dl><dt><strong>OPERATORS</strong> = {'and': '&amp;', 'equ': '&lt;=&gt;', 'impL': '=&gt;', 'not': '~', 'or': '|'}</dl>
+
+<dl><dt><strong>PARENTHESIS</strong> = {'(': '(', ')': ')'}</dl>
+
+<hr>
+Methods inherited from <a href="liprojekt.parsing.alphabets.html#AlphabetMap">AlphabetMap</a>:<br>
+<dl><dt><a name="SymbolicAlphabetMap-getConstantSymbol"><strong>getConstantSymbol</strong></a>(self, key)</dt><dd><tt>zwraca&nbsp;rządany&nbsp;symbol&nbsp;operatora,&nbsp;jeżeli&nbsp;nie&nbsp;ma&nbsp;takiego&nbsp;symbolu&nbsp;stałej&nbsp;logicznej<br>
+w&nbsp;alfabecie,&nbsp;rzucany&nbsp;jest&nbsp;wyjątek</tt></dd></dl>
+
+<dl><dt><a name="SymbolicAlphabetMap-getConstants"><strong>getConstants</strong></a>(self)</dt><dd><tt>zwraca&nbsp;mapę&nbsp;symboli&nbsp;stałych&nbsp;logicznych</tt></dd></dl>
+
+<dl><dt><a name="SymbolicAlphabetMap-getLegend"><strong>getLegend</strong></a>(self)</dt><dd><tt>Zwraca&nbsp;legende&nbsp;alfabetu&nbsp;w&nbsp;postaci&nbsp;łańcycha&nbsp;znaków</tt></dd></dl>
+
+<dl><dt><a name="SymbolicAlphabetMap-getNotFormat"><strong>getNotFormat</strong></a>(self)</dt><dd><tt>zwraca&nbsp;format&nbsp;operatora&nbsp;zaprzeczenia</tt></dd></dl>
+
+<dl><dt><a name="SymbolicAlphabetMap-getOperatorSymbol"><strong>getOperatorSymbol</strong></a>(self, key)</dt><dd><tt>zwraca&nbsp;rządany&nbsp;symbol&nbsp;operatora,&nbsp;jeżeli&nbsp;nie&nbsp;ma&nbsp;takiego&nbsp;operatora<br>
+w&nbsp;alfabecie,&nbsp;rzucany&nbsp;jest&nbsp;wyjątek</tt></dd></dl>
+
+<dl><dt><a name="SymbolicAlphabetMap-getOperators"><strong>getOperators</strong></a>(self)</dt><dd><tt>zwraca&nbsp;mapę&nbsp;symboli&nbsp;operatorów&nbsp;logicznych</tt></dd></dl>
+
+<dl><dt><a name="SymbolicAlphabetMap-getParenthesis"><strong>getParenthesis</strong></a>(self)</dt><dd><tt>zwraca&nbsp;mapę&nbsp;symboli&nbsp;nawiasów</tt></dd></dl>
+
+<dl><dt><a name="SymbolicAlphabetMap-getParenthesisSymbol"><strong>getParenthesisSymbol</strong></a>(self, key)</dt><dd><tt>zwraca&nbsp;rządany&nbsp;symbol&nbsp;nawiasu,&nbsp;jeżeli&nbsp;nie&nbsp;ma&nbsp;takiego&nbsp;symbolu&nbsp;nawiasu<br>
+w&nbsp;alfabecie,&nbsp;rzucany&nbsp;jest&nbsp;wyjątek</tt></dd></dl>
+
+<dl><dt><a name="SymbolicAlphabetMap-notNeedSpace"><strong>notNeedSpace</strong></a>(self)</dt></dl>
+
+<hr>
+Data descriptors inherited from <a href="liprojekt.parsing.alphabets.html#AlphabetMap">AlphabetMap</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="WordAlphabetMap">class <strong>WordAlphabetMap</strong></a>(<a href="liprojekt.parsing.alphabets.html#AlphabetMap">AlphabetMap</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Składnia&nbsp;oparta&nbsp;na&nbsp;słowach<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="liprojekt.parsing.alphabets.html#WordAlphabetMap">WordAlphabetMap</a></dd>
+<dd><a href="liprojekt.parsing.alphabets.html#AlphabetMap">AlphabetMap</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>CONSTANTS</strong> = {'false': 'false', 'true': 'true'}</dl>
+
+<dl><dt><strong>NAME</strong> = 'Sk<font color="#c040c0">\xc5\x82</font>adnia s<font color="#c040c0">\xc5\x82</font>owna'</dl>
+
+<dl><dt><strong>NOT_FORMAT</strong> = '{not} {subformula}'</dl>
+
+<dl><dt><strong>NOT_NEED_SPACE</strong> = True</dl>
+
+<dl><dt><strong>OPERATORS</strong> = {'and': 'and', 'equ': 'equ', 'impL': 'imp', 'not': 'not', 'or': 'or'}</dl>
+
+<dl><dt><strong>PARENTHESIS</strong> = {'(': '(', ')': ')'}</dl>
+
+<hr>
+Methods inherited from <a href="liprojekt.parsing.alphabets.html#AlphabetMap">AlphabetMap</a>:<br>
+<dl><dt><a name="WordAlphabetMap-getConstantSymbol"><strong>getConstantSymbol</strong></a>(self, key)</dt><dd><tt>zwraca&nbsp;rządany&nbsp;symbol&nbsp;operatora,&nbsp;jeżeli&nbsp;nie&nbsp;ma&nbsp;takiego&nbsp;symbolu&nbsp;stałej&nbsp;logicznej<br>
+w&nbsp;alfabecie,&nbsp;rzucany&nbsp;jest&nbsp;wyjątek</tt></dd></dl>
+
+<dl><dt><a name="WordAlphabetMap-getConstants"><strong>getConstants</strong></a>(self)</dt><dd><tt>zwraca&nbsp;mapę&nbsp;symboli&nbsp;stałych&nbsp;logicznych</tt></dd></dl>
+
+<dl><dt><a name="WordAlphabetMap-getLegend"><strong>getLegend</strong></a>(self)</dt><dd><tt>Zwraca&nbsp;legende&nbsp;alfabetu&nbsp;w&nbsp;postaci&nbsp;łańcycha&nbsp;znaków</tt></dd></dl>
+
+<dl><dt><a name="WordAlphabetMap-getNotFormat"><strong>getNotFormat</strong></a>(self)</dt><dd><tt>zwraca&nbsp;format&nbsp;operatora&nbsp;zaprzeczenia</tt></dd></dl>
+
+<dl><dt><a name="WordAlphabetMap-getOperatorSymbol"><strong>getOperatorSymbol</strong></a>(self, key)</dt><dd><tt>zwraca&nbsp;rządany&nbsp;symbol&nbsp;operatora,&nbsp;jeżeli&nbsp;nie&nbsp;ma&nbsp;takiego&nbsp;operatora<br>
+w&nbsp;alfabecie,&nbsp;rzucany&nbsp;jest&nbsp;wyjątek</tt></dd></dl>
+
+<dl><dt><a name="WordAlphabetMap-getOperators"><strong>getOperators</strong></a>(self)</dt><dd><tt>zwraca&nbsp;mapę&nbsp;symboli&nbsp;operatorów&nbsp;logicznych</tt></dd></dl>
+
+<dl><dt><a name="WordAlphabetMap-getParenthesis"><strong>getParenthesis</strong></a>(self)</dt><dd><tt>zwraca&nbsp;mapę&nbsp;symboli&nbsp;nawiasów</tt></dd></dl>
+
+<dl><dt><a name="WordAlphabetMap-getParenthesisSymbol"><strong>getParenthesisSymbol</strong></a>(self, key)</dt><dd><tt>zwraca&nbsp;rządany&nbsp;symbol&nbsp;nawiasu,&nbsp;jeżeli&nbsp;nie&nbsp;ma&nbsp;takiego&nbsp;symbolu&nbsp;nawiasu<br>
+w&nbsp;alfabecie,&nbsp;rzucany&nbsp;jest&nbsp;wyjątek</tt></dd></dl>
+
+<dl><dt><a name="WordAlphabetMap-notNeedSpace"><strong>notNeedSpace</strong></a>(self)</dt></dl>
+
+<hr>
+Data descriptors inherited from <a href="liprojekt.parsing.alphabets.html#AlphabetMap">AlphabetMap</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table></td></tr></table>
+</body></html>

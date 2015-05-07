@@ -1,0 +1,499 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module liprojekt.conversion.clauses</title>
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="liprojekt.html"><font color="#ffffff">liprojekt</font></a>.<a href="liprojekt.conversion.html"><font color="#ffffff">conversion</font></a>.clauses</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/pawel/Programowanie/Lokalne_instalacje/lib/python2.7/site-packages/liprojekt/conversion/clauses.py">/home/pawel/Programowanie/Lokalne_instalacje/lib/python2.7/site-packages/liprojekt/conversion/clauses.py</a></font></td></tr></table>
+    <p><tt>Created&nbsp;on&nbsp;11-04-2013<br>
+&nbsp;<br>
+@author:&nbsp;pawel<br>
+&nbsp;<br>
+moduł&nbsp;zawiera&nbsp;klasy&nbsp;reprezentujące&nbsp;klauzule.&nbsp;Uwaga,&nbsp;są&nbsp;to&nbsp;półprodukty.<br>
+Oznacza&nbsp;to&nbsp;że&nbsp;mają&nbsp;one&nbsp;formę&nbsp;(a&nbsp;v&nbsp;b&nbsp;v&nbsp;c)&nbsp;dla&nbsp;kl.&nbsp;dysjunkcyjnych&nbsp;lub&nbsp;<br>
+(a&nbsp;^&nbsp;b&nbsp;^&nbsp;c)&nbsp;dla&nbsp;kl.&nbsp;konjunkcyjnych.&nbsp;Jednakże&nbsp;a,&nbsp;b,&nbsp;c&nbsp;nie&nbsp;muszą&nbsp;być<br>
+literałami.&nbsp;Mogą&nbsp;to&nbsp;być&nbsp;dowolne&nbsp;formuły&nbsp;logiczne.&nbsp;Klasy&nbsp;<a href="#Clause">Clause</a>&nbsp;mają&nbsp;metody<br>
+aby&nbsp;dobrowadzić&nbsp;półprodukt&nbsp;to&nbsp;poprawnej&nbsp;postaci&nbsp;Klauzuli&nbsp;składającej&nbsp;się&nbsp;wyłącznie<br>
+z&nbsp;literałów.</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="logging.html">logging</a><br>
+</td><td width="25%" valign=top><a href="sys.html">sys</a><br>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="__builtin__.html#object">__builtin__.object</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="liprojekt.conversion.clauses.html#Clause">Clause</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="liprojekt.conversion.clauses.html#ConjunctionClause">ConjunctionClause</a>
+</font></dt><dt><font face="helvetica, arial"><a href="liprojekt.conversion.clauses.html#DisjunctionClause">DisjunctionClause</a>
+</font></dt></dl>
+</dd>
+<dt><font face="helvetica, arial"><a href="liprojekt.conversion.clauses.html#ClauseState">ClauseState</a>
+</font></dt><dt><font face="helvetica, arial"><a href="liprojekt.conversion.clauses.html#ClauseStatus">ClauseStatus</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="liprojekt.conversion.clauses.html#ClauseHasFalse">ClauseHasFalse</a>
+</font></dt><dt><font face="helvetica, arial"><a href="liprojekt.conversion.clauses.html#ClauseHasOppositeLVars">ClauseHasOppositeLVars</a>
+</font></dt><dt><font face="helvetica, arial"><a href="liprojekt.conversion.clauses.html#ClauseHasTruth">ClauseHasTruth</a>
+</font></dt><dt><font face="helvetica, arial"><a href="liprojekt.conversion.clauses.html#ClauseResolved">ClauseResolved</a>
+</font></dt><dt><font face="helvetica, arial"><a href="liprojekt.conversion.clauses.html#ClauseUnresolved">ClauseUnresolved</a>
+</font></dt></dl>
+</dd>
+</dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Clause">class <strong>Clause</strong></a>(<a href="__builtin__.html#object">__builtin__.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Półprodukt,&nbsp;którego&nbsp;celem&nbsp;jest&nbsp;stać&nbsp;się&nbsp;klauzulą<br>
+&nbsp;<br>
+Klasa&nbsp;<a href="#Clause">Clause</a>&nbsp;stanowi&nbsp;etap&nbsp;w&nbsp;procesie&nbsp;konwersji&nbsp;formuły&nbsp;logicznej&nbsp;na&nbsp;klauzuly<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="Clause-__init__"><strong>__init__</strong></a>(self, formula, conSymbol<font color="#909090">=','</font>)</dt><dd><tt>Konstuktor&nbsp;klasy&nbsp;<a href="#Clause">Clause</a><br>
+&nbsp;<br>
+<a href="#Clause">Clause</a>&nbsp;tworzone&nbsp;jest&nbsp;z&nbsp;formuły&nbsp;logicznej.&nbsp;Argument&nbsp;formula&nbsp;jest&nbsp;klasy&nbsp;formulas.Formula.<br>
+formula&nbsp;staje&nbsp;się&nbsp;pierwszą&nbsp;nieprzerobioną&nbsp;podformułą&nbsp;w&nbsp;półprodukcie&nbsp;<a href="#Clause">Clause</a>.&nbsp;Konwersja<br>
+półproduktu&nbsp;<a href="#Clause">Clause</a>&nbsp;polaga&nbsp;na&nbsp;upraszczaniu&nbsp;kolenych&nbsp;podformuł&nbsp;z&nbsp;listy&nbsp;jeszcze&nbsp;nieprzerobionych<br>
+podformuł.</tt></dd></dl>
+
+<dl><dt><a name="Clause-__str__"><strong>__str__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Clause-allFormulas2str"><strong>allFormulas2str</strong></a>(self, fformatter)</dt><dd><tt>wypisuje&nbsp;wszystkie&nbsp;podformuły&nbsp;w&nbsp;<a href="#Clause">Clause</a></tt></dd></dl>
+
+<dl><dt><a name="Clause-convertStep"><strong>convertStep</strong></a>(self)</dt><dd><tt>kolejny&nbsp;krok&nbsp;konwersji<br>
+&nbsp;<br>
+brana&nbsp;jest&nbsp;kolejna&nbsp;nieurposzczona&nbsp;podformuła&nbsp;z&nbsp;której&nbsp;składa&nbsp;sie&nbsp;<a href="#Clause">Clause</a>.&nbsp;<br>
+Podformuła&nbsp;poddawana&nbsp;jest&nbsp;przekształceniom&nbsp;opartym&nbsp;na&nbsp;prawach&nbsp;DeMorgana,<br>
+powstaje&nbsp;nowy&nbsp;obiekt&nbsp;<a href="#Clause">Clause</a>,&nbsp;albo&nbsp;para&nbsp;nowych&nbsp;obiektów&nbsp;<a href="#Clause">Clause</a>.</tt></dd></dl>
+
+<dl><dt><a name="Clause-convertedFormulas2str"><strong>convertedFormulas2str</strong></a>(self, fformatter)</dt><dd><tt>wypisuje&nbsp;podformuły&nbsp;uproszczone&nbsp;(zmienne&nbsp;i&nbsp;stałe&nbsp;logiczne)&nbsp;logicznie&nbsp;w&nbsp;<a href="#Clause">Clause</a></tt></dd></dl>
+
+<dl><dt><a name="Clause-isFailure"><strong>isFailure</strong></a>(self)</dt><dd><tt><a href="#Clause">Clause</a>&nbsp;podważa&nbsp;tezę<br>
+&nbsp;<br>
+<a href="#Clause">Clause</a>&nbsp;podważa&nbsp;tezę,&nbsp;że&nbsp;formuła&nbsp;z&nbsp;której&nbsp;powstała&nbsp;jest&nbsp;spełnialna&nbsp;/&nbsp;jest&nbsp;tautologią</tt></dd></dl>
+
+<dl><dt><a name="Clause-isResolved"><strong>isResolved</strong></a>(self)</dt><dd><tt>Czy&nbsp;<a href="#Clause">Clause</a>&nbsp;określa&nbsp;sytuację<br>
+&nbsp;<br>
+Znaczy,&nbsp;czy&nbsp;wiadomo&nbsp;cos&nbsp;o&nbsp;formule&nbsp;z&nbsp;której&nbsp;powstało&nbsp;<a href="#Clause">Clause</a>,&nbsp;na&nbsp;podstawie&nbsp;danej<br>
+<a href="#Clause">Clause</a>.&nbsp;(czy&nbsp;owa&nbsp;formuła&nbsp;jest&nbsp;/&nbsp;nie&nbsp;jest&nbsp;spełnialna,&nbsp;jest&nbsp;/&nbsp;nie&nbsp;jest&nbsp;tautologią)</tt></dd></dl>
+
+<dl><dt><a name="Clause-isSuccess"><strong>isSuccess</strong></a>(self)</dt><dd><tt><a href="#Clause">Clause</a>&nbsp;potwierdza&nbsp;tezę<br>
+&nbsp;<br>
+<a href="#Clause">Clause</a>&nbsp;potwierdza&nbsp;tezę,&nbsp;że&nbsp;formuła&nbsp;z&nbsp;której&nbsp;powstała&nbsp;jest&nbsp;spełnialna&nbsp;/&nbsp;jest&nbsp;tautologią</tt></dd></dl>
+
+<dl><dt><a name="Clause-lconsts2str"><strong>lconsts2str</strong></a>(self, fformatter)</dt><dd><tt>wypisuje&nbsp;stałe&nbsp;logicznie&nbsp;w&nbsp;<a href="#Clause">Clause</a></tt></dd></dl>
+
+<dl><dt><a name="Clause-lvars2str"><strong>lvars2str</strong></a>(self, fformatter)</dt><dd><tt>wypisuje&nbsp;zmienne&nbsp;logicznie&nbsp;w&nbsp;<a href="#Clause">Clause</a></tt></dd></dl>
+
+<dl><dt><a name="Clause-status2str"><strong>status2str</strong></a>(self, fformatter, statusPrefix<font color="#909090">=''</font>, onlyResolved<font color="#909090">=False</font>)</dt><dd><tt>wypisuje&nbsp;status&nbsp;<a href="#Clause">Clause</a></tt></dd></dl>
+
+<dl><dt><a name="Clause-unconvertedFormulas2str"><strong>unconvertedFormulas2str</strong></a>(self, fformatter)</dt><dd><tt>wypisuje&nbsp;podformuły&nbsp;nieuproszczone&nbsp;w&nbsp;<a href="#Clause">Clause</a></tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="ClauseHasFalse">class <strong>ClauseHasFalse</strong></a>(<a href="liprojekt.conversion.clauses.html#ClauseStatus">ClauseStatus</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>status&nbsp;`ma&nbsp;w&nbsp;sobie&nbsp;fałsz&nbsp;logiczny`<br>
+&nbsp;<br>
+<a href="#Clause">Clause</a>&nbsp;ma&nbsp;fałsz&nbsp;logiczy,&nbsp;czyli&nbsp;jest&nbsp;postaci&nbsp;(F,&nbsp;a,&nbsp;b,&nbsp;...)<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="liprojekt.conversion.clauses.html#ClauseHasFalse">ClauseHasFalse</a></dd>
+<dd><a href="liprojekt.conversion.clauses.html#ClauseStatus">ClauseStatus</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="ClauseHasFalse-__init__"><strong>__init__</strong></a>(self, state, effect)</dt></dl>
+
+<dl><dt><a name="ClauseHasFalse-status2str"><strong>status2str</strong></a>(self, fformatter)</dt></dl>
+
+<hr>
+Methods inherited from <a href="liprojekt.conversion.clauses.html#ClauseStatus">ClauseStatus</a>:<br>
+<dl><dt><a name="ClauseHasFalse-__str__"><strong>__str__</strong></a>(self)</dt><dd><tt>zwraca&nbsp;string&nbsp;informujący&nbsp;o&nbsp;sytyacji&nbsp;jaka&nbsp;wynika&nbsp;z&nbsp;bycia&nbsp;w&nbsp;stanie&nbsp;<a href="#ClauseStatus">ClauseStatus</a></tt></dd></dl>
+
+<dl><dt><a name="ClauseHasFalse-getState"><strong>getState</strong></a>(self)</dt></dl>
+
+<hr>
+Data descriptors inherited from <a href="liprojekt.conversion.clauses.html#ClauseStatus">ClauseStatus</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="ClauseHasOppositeLVars">class <strong>ClauseHasOppositeLVars</strong></a>(<a href="liprojekt.conversion.clauses.html#ClauseStatus">ClauseStatus</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>status&nbsp;`klauzula&nbsp;ma&nbsp;zmienną&nbsp;logiczną&nbsp;i&nbsp;jej&nbsp;negację`<br>
+&nbsp;<br>
+w&nbsp;skład&nbsp;<a href="#Clause">Clause</a>&nbsp;wchodzi&nbsp;zmienna&nbsp;logiczna&nbsp;i&nbsp;jej&nbsp;negacja,&nbsp;czyli&nbsp;jest&nbsp;postaci&nbsp;(p,&nbsp;~p,&nbsp;...)<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="liprojekt.conversion.clauses.html#ClauseHasOppositeLVars">ClauseHasOppositeLVars</a></dd>
+<dd><a href="liprojekt.conversion.clauses.html#ClauseStatus">ClauseStatus</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="ClauseHasOppositeLVars-__init__"><strong>__init__</strong></a>(self, state, lit, neglit, effect)</dt></dl>
+
+<dl><dt><a name="ClauseHasOppositeLVars-status2str"><strong>status2str</strong></a>(self, fformatter)</dt></dl>
+
+<hr>
+Methods inherited from <a href="liprojekt.conversion.clauses.html#ClauseStatus">ClauseStatus</a>:<br>
+<dl><dt><a name="ClauseHasOppositeLVars-__str__"><strong>__str__</strong></a>(self)</dt><dd><tt>zwraca&nbsp;string&nbsp;informujący&nbsp;o&nbsp;sytyacji&nbsp;jaka&nbsp;wynika&nbsp;z&nbsp;bycia&nbsp;w&nbsp;stanie&nbsp;<a href="#ClauseStatus">ClauseStatus</a></tt></dd></dl>
+
+<dl><dt><a name="ClauseHasOppositeLVars-getState"><strong>getState</strong></a>(self)</dt></dl>
+
+<hr>
+Data descriptors inherited from <a href="liprojekt.conversion.clauses.html#ClauseStatus">ClauseStatus</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="ClauseHasTruth">class <strong>ClauseHasTruth</strong></a>(<a href="liprojekt.conversion.clauses.html#ClauseStatus">ClauseStatus</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>status&nbsp;`ma&nbsp;w&nbsp;sobie&nbsp;prawdę&nbsp;logiczną`<br>
+&nbsp;<br>
+<a href="#Clause">Clause</a>&nbsp;ma&nbsp;prawdę&nbsp;logiczą,&nbsp;czyli&nbsp;jest&nbsp;postaci&nbsp;(T,&nbsp;a,&nbsp;b,&nbsp;...)<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="liprojekt.conversion.clauses.html#ClauseHasTruth">ClauseHasTruth</a></dd>
+<dd><a href="liprojekt.conversion.clauses.html#ClauseStatus">ClauseStatus</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="ClauseHasTruth-__init__"><strong>__init__</strong></a>(self, state, effect)</dt></dl>
+
+<dl><dt><a name="ClauseHasTruth-status2str"><strong>status2str</strong></a>(self, fformatter)</dt></dl>
+
+<hr>
+Methods inherited from <a href="liprojekt.conversion.clauses.html#ClauseStatus">ClauseStatus</a>:<br>
+<dl><dt><a name="ClauseHasTruth-__str__"><strong>__str__</strong></a>(self)</dt><dd><tt>zwraca&nbsp;string&nbsp;informujący&nbsp;o&nbsp;sytyacji&nbsp;jaka&nbsp;wynika&nbsp;z&nbsp;bycia&nbsp;w&nbsp;stanie&nbsp;<a href="#ClauseStatus">ClauseStatus</a></tt></dd></dl>
+
+<dl><dt><a name="ClauseHasTruth-getState"><strong>getState</strong></a>(self)</dt></dl>
+
+<hr>
+Data descriptors inherited from <a href="liprojekt.conversion.clauses.html#ClauseStatus">ClauseStatus</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="ClauseResolved">class <strong>ClauseResolved</strong></a>(<a href="liprojekt.conversion.clauses.html#ClauseStatus">ClauseStatus</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>status&nbsp;`klauzula&nbsp;w&nbsp;pełni&nbsp;rozwinięta`<br>
+&nbsp;<br>
+<a href="#Clause">Clause</a>&nbsp;składa&nbsp;się&nbsp;wyłącznie&nbsp;z&nbsp;literałów,&nbsp;czyli&nbsp;jest&nbsp;postaci&nbsp;(a,&nbsp;b,&nbsp;c,&nbsp;...)&nbsp;a,&nbsp;b,&nbsp;c&nbsp;to&nbsp;lit.<br>
+(może&nbsp;też&nbsp;mieć&nbsp;stałe&nbsp;logiczne)<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="liprojekt.conversion.clauses.html#ClauseResolved">ClauseResolved</a></dd>
+<dd><a href="liprojekt.conversion.clauses.html#ClauseStatus">ClauseStatus</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="ClauseResolved-__init__"><strong>__init__</strong></a>(self, state, effect)</dt></dl>
+
+<dl><dt><a name="ClauseResolved-status2str"><strong>status2str</strong></a>(self, fformatter)</dt></dl>
+
+<hr>
+Methods inherited from <a href="liprojekt.conversion.clauses.html#ClauseStatus">ClauseStatus</a>:<br>
+<dl><dt><a name="ClauseResolved-__str__"><strong>__str__</strong></a>(self)</dt><dd><tt>zwraca&nbsp;string&nbsp;informujący&nbsp;o&nbsp;sytyacji&nbsp;jaka&nbsp;wynika&nbsp;z&nbsp;bycia&nbsp;w&nbsp;stanie&nbsp;<a href="#ClauseStatus">ClauseStatus</a></tt></dd></dl>
+
+<dl><dt><a name="ClauseResolved-getState"><strong>getState</strong></a>(self)</dt></dl>
+
+<hr>
+Data descriptors inherited from <a href="liprojekt.conversion.clauses.html#ClauseStatus">ClauseStatus</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="ClauseState">class <strong>ClauseState</strong></a>(<a href="__builtin__.html#object">__builtin__.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>stan&nbsp;półproduktu&nbsp;<a href="#Clause">Clause</a><br>
+&nbsp;<br>
+<a href="#Clause">Clause</a>&nbsp;może&nbsp;mieć&nbsp;trzy&nbsp;stany:<br>
+*&nbsp;<a href="#ClauseState">ClauseState</a>.UNKNOWN&nbsp;-&gt;&nbsp;nie&nbsp;wiadomo&nbsp;czy&nbsp;decyduje&nbsp;o&nbsp;spełnialności&nbsp;czy&nbsp;tautologi<br>
+*&nbsp;<a href="#ClauseState">ClauseState</a>.SUCCESS&nbsp;-&gt;&nbsp;klauzula&nbsp;powastała&nbsp;z&nbsp;formuły,&nbsp;która&nbsp;jest&nbsp;spełnialna,&nbsp;albo&nbsp;jest&nbsp;tautologią<br>
+*&nbsp;<a href="#ClauseState">ClauseState</a>.FAILURE&nbsp;-&gt;&nbsp;klauzula&nbsp;powstała&nbsp;z&nbsp;formuły,&nbsp;która&nbsp;nie&nbsp;jest&nbsp;spełnialan,&nbsp;albo&nbsp;nie&nbsp;jest&nbsp;tautologią<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>FAILURE</strong> = 2</dl>
+
+<dl><dt><strong>SUCCESS</strong> = 1</dl>
+
+<dl><dt><strong>UNKNOWN</strong> = 0</dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="ClauseStatus">class <strong>ClauseStatus</strong></a>(<a href="__builtin__.html#object">__builtin__.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>status&nbsp;półproduktu&nbsp;<a href="#Clause">Clause</a><br>
+&nbsp;<br>
+opisuje&nbsp;stan&nbsp;w&nbsp;jakim&nbsp;znajduje&nbsp;się&nbsp;półproduk&nbsp;Clasue.&nbsp;Stan&nbsp;może&nbsp;wskazywać<br>
+na&nbsp;fakt,&nbsp;że&nbsp;formuła&nbsp;z&nbsp;której&nbsp;powstało&nbsp;<a href="#Clause">Clause</a>&nbsp;jest&nbsp;/&nbsp;nie&nbsp;jest&nbsp;spełnialana,&nbsp;<br>
+albo&nbsp;jest&nbsp;/&nbsp;nie&nbsp;jest&nbsp;tautologią<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="ClauseStatus-__init__"><strong>__init__</strong></a>(self, state, effect, cause<font color="#909090">=''</font>)</dt></dl>
+
+<dl><dt><a name="ClauseStatus-__str__"><strong>__str__</strong></a>(self)</dt><dd><tt>zwraca&nbsp;string&nbsp;informujący&nbsp;o&nbsp;sytyacji&nbsp;jaka&nbsp;wynika&nbsp;z&nbsp;bycia&nbsp;w&nbsp;stanie&nbsp;<a href="#ClauseStatus">ClauseStatus</a></tt></dd></dl>
+
+<dl><dt><a name="ClauseStatus-getState"><strong>getState</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="ClauseStatus-status2str"><strong>status2str</strong></a>(self, fformatter)</dt><dd><tt>zwraca&nbsp;słowny&nbsp;opis&nbsp;statusu&nbsp;<a href="#Clause">Clause</a></tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="ClauseUnresolved">class <strong>ClauseUnresolved</strong></a>(<a href="liprojekt.conversion.clauses.html#ClauseStatus">ClauseStatus</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>status&nbsp;nierozstrzygnięty<br>
+&nbsp;<br>
+nie&nbsp;wiadomo&nbsp;jeszcze&nbsp;nic&nbsp;konkretnego&nbsp;o&nbsp;półprodukcie&nbsp;<a href="#Clause">Clause</a><br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="liprojekt.conversion.clauses.html#ClauseUnresolved">ClauseUnresolved</a></dd>
+<dd><a href="liprojekt.conversion.clauses.html#ClauseStatus">ClauseStatus</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="ClauseUnresolved-__init__"><strong>__init__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="ClauseUnresolved-status2str"><strong>status2str</strong></a>(self, fformatter)</dt></dl>
+
+<hr>
+Methods inherited from <a href="liprojekt.conversion.clauses.html#ClauseStatus">ClauseStatus</a>:<br>
+<dl><dt><a name="ClauseUnresolved-__str__"><strong>__str__</strong></a>(self)</dt><dd><tt>zwraca&nbsp;string&nbsp;informujący&nbsp;o&nbsp;sytyacji&nbsp;jaka&nbsp;wynika&nbsp;z&nbsp;bycia&nbsp;w&nbsp;stanie&nbsp;<a href="#ClauseStatus">ClauseStatus</a></tt></dd></dl>
+
+<dl><dt><a name="ClauseUnresolved-getState"><strong>getState</strong></a>(self)</dt></dl>
+
+<hr>
+Data descriptors inherited from <a href="liprojekt.conversion.clauses.html#ClauseStatus">ClauseStatus</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="ConjunctionClause">class <strong>ConjunctionClause</strong></a>(<a href="liprojekt.conversion.clauses.html#Clause">Clause</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Klasa&nbsp;reprezentująca&nbsp;półprodukt&nbsp;dążący&nbsp;do&nbsp;postaci&nbsp;klauzuli&nbsp;koniunkcyjnej<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="liprojekt.conversion.clauses.html#ConjunctionClause">ConjunctionClause</a></dd>
+<dd><a href="liprojekt.conversion.clauses.html#Clause">Clause</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods inherited from <a href="liprojekt.conversion.clauses.html#Clause">Clause</a>:<br>
+<dl><dt><a name="ConjunctionClause-__init__"><strong>__init__</strong></a>(self, formula, conSymbol<font color="#909090">=','</font>)</dt><dd><tt>Konstuktor&nbsp;klasy&nbsp;<a href="#Clause">Clause</a><br>
+&nbsp;<br>
+<a href="#Clause">Clause</a>&nbsp;tworzone&nbsp;jest&nbsp;z&nbsp;formuły&nbsp;logicznej.&nbsp;Argument&nbsp;formula&nbsp;jest&nbsp;klasy&nbsp;formulas.Formula.<br>
+formula&nbsp;staje&nbsp;się&nbsp;pierwszą&nbsp;nieprzerobioną&nbsp;podformułą&nbsp;w&nbsp;półprodukcie&nbsp;<a href="#Clause">Clause</a>.&nbsp;Konwersja<br>
+półproduktu&nbsp;<a href="#Clause">Clause</a>&nbsp;polaga&nbsp;na&nbsp;upraszczaniu&nbsp;kolenych&nbsp;podformuł&nbsp;z&nbsp;listy&nbsp;jeszcze&nbsp;nieprzerobionych<br>
+podformuł.</tt></dd></dl>
+
+<dl><dt><a name="ConjunctionClause-__str__"><strong>__str__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="ConjunctionClause-allFormulas2str"><strong>allFormulas2str</strong></a>(self, fformatter)</dt><dd><tt>wypisuje&nbsp;wszystkie&nbsp;podformuły&nbsp;w&nbsp;<a href="#Clause">Clause</a></tt></dd></dl>
+
+<dl><dt><a name="ConjunctionClause-convertStep"><strong>convertStep</strong></a>(self)</dt><dd><tt>kolejny&nbsp;krok&nbsp;konwersji<br>
+&nbsp;<br>
+brana&nbsp;jest&nbsp;kolejna&nbsp;nieurposzczona&nbsp;podformuła&nbsp;z&nbsp;której&nbsp;składa&nbsp;sie&nbsp;<a href="#Clause">Clause</a>.&nbsp;<br>
+Podformuła&nbsp;poddawana&nbsp;jest&nbsp;przekształceniom&nbsp;opartym&nbsp;na&nbsp;prawach&nbsp;DeMorgana,<br>
+powstaje&nbsp;nowy&nbsp;obiekt&nbsp;<a href="#Clause">Clause</a>,&nbsp;albo&nbsp;para&nbsp;nowych&nbsp;obiektów&nbsp;<a href="#Clause">Clause</a>.</tt></dd></dl>
+
+<dl><dt><a name="ConjunctionClause-convertedFormulas2str"><strong>convertedFormulas2str</strong></a>(self, fformatter)</dt><dd><tt>wypisuje&nbsp;podformuły&nbsp;uproszczone&nbsp;(zmienne&nbsp;i&nbsp;stałe&nbsp;logiczne)&nbsp;logicznie&nbsp;w&nbsp;<a href="#Clause">Clause</a></tt></dd></dl>
+
+<dl><dt><a name="ConjunctionClause-isFailure"><strong>isFailure</strong></a>(self)</dt><dd><tt><a href="#Clause">Clause</a>&nbsp;podważa&nbsp;tezę<br>
+&nbsp;<br>
+<a href="#Clause">Clause</a>&nbsp;podważa&nbsp;tezę,&nbsp;że&nbsp;formuła&nbsp;z&nbsp;której&nbsp;powstała&nbsp;jest&nbsp;spełnialna&nbsp;/&nbsp;jest&nbsp;tautologią</tt></dd></dl>
+
+<dl><dt><a name="ConjunctionClause-isResolved"><strong>isResolved</strong></a>(self)</dt><dd><tt>Czy&nbsp;<a href="#Clause">Clause</a>&nbsp;określa&nbsp;sytuację<br>
+&nbsp;<br>
+Znaczy,&nbsp;czy&nbsp;wiadomo&nbsp;cos&nbsp;o&nbsp;formule&nbsp;z&nbsp;której&nbsp;powstało&nbsp;<a href="#Clause">Clause</a>,&nbsp;na&nbsp;podstawie&nbsp;danej<br>
+<a href="#Clause">Clause</a>.&nbsp;(czy&nbsp;owa&nbsp;formuła&nbsp;jest&nbsp;/&nbsp;nie&nbsp;jest&nbsp;spełnialna,&nbsp;jest&nbsp;/&nbsp;nie&nbsp;jest&nbsp;tautologią)</tt></dd></dl>
+
+<dl><dt><a name="ConjunctionClause-isSuccess"><strong>isSuccess</strong></a>(self)</dt><dd><tt><a href="#Clause">Clause</a>&nbsp;potwierdza&nbsp;tezę<br>
+&nbsp;<br>
+<a href="#Clause">Clause</a>&nbsp;potwierdza&nbsp;tezę,&nbsp;że&nbsp;formuła&nbsp;z&nbsp;której&nbsp;powstała&nbsp;jest&nbsp;spełnialna&nbsp;/&nbsp;jest&nbsp;tautologią</tt></dd></dl>
+
+<dl><dt><a name="ConjunctionClause-lconsts2str"><strong>lconsts2str</strong></a>(self, fformatter)</dt><dd><tt>wypisuje&nbsp;stałe&nbsp;logicznie&nbsp;w&nbsp;<a href="#Clause">Clause</a></tt></dd></dl>
+
+<dl><dt><a name="ConjunctionClause-lvars2str"><strong>lvars2str</strong></a>(self, fformatter)</dt><dd><tt>wypisuje&nbsp;zmienne&nbsp;logicznie&nbsp;w&nbsp;<a href="#Clause">Clause</a></tt></dd></dl>
+
+<dl><dt><a name="ConjunctionClause-status2str"><strong>status2str</strong></a>(self, fformatter, statusPrefix<font color="#909090">=''</font>, onlyResolved<font color="#909090">=False</font>)</dt><dd><tt>wypisuje&nbsp;status&nbsp;<a href="#Clause">Clause</a></tt></dd></dl>
+
+<dl><dt><a name="ConjunctionClause-unconvertedFormulas2str"><strong>unconvertedFormulas2str</strong></a>(self, fformatter)</dt><dd><tt>wypisuje&nbsp;podformuły&nbsp;nieuproszczone&nbsp;w&nbsp;<a href="#Clause">Clause</a></tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="liprojekt.conversion.clauses.html#Clause">Clause</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="DisjunctionClause">class <strong>DisjunctionClause</strong></a>(<a href="liprojekt.conversion.clauses.html#Clause">Clause</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Klasa&nbsp;reprezentująca&nbsp;półprodukt&nbsp;dążący&nbsp;do&nbsp;postaci&nbsp;klauzuli&nbsp;dysjunkcyjnej<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="liprojekt.conversion.clauses.html#DisjunctionClause">DisjunctionClause</a></dd>
+<dd><a href="liprojekt.conversion.clauses.html#Clause">Clause</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods inherited from <a href="liprojekt.conversion.clauses.html#Clause">Clause</a>:<br>
+<dl><dt><a name="DisjunctionClause-__init__"><strong>__init__</strong></a>(self, formula, conSymbol<font color="#909090">=','</font>)</dt><dd><tt>Konstuktor&nbsp;klasy&nbsp;<a href="#Clause">Clause</a><br>
+&nbsp;<br>
+<a href="#Clause">Clause</a>&nbsp;tworzone&nbsp;jest&nbsp;z&nbsp;formuły&nbsp;logicznej.&nbsp;Argument&nbsp;formula&nbsp;jest&nbsp;klasy&nbsp;formulas.Formula.<br>
+formula&nbsp;staje&nbsp;się&nbsp;pierwszą&nbsp;nieprzerobioną&nbsp;podformułą&nbsp;w&nbsp;półprodukcie&nbsp;<a href="#Clause">Clause</a>.&nbsp;Konwersja<br>
+półproduktu&nbsp;<a href="#Clause">Clause</a>&nbsp;polaga&nbsp;na&nbsp;upraszczaniu&nbsp;kolenych&nbsp;podformuł&nbsp;z&nbsp;listy&nbsp;jeszcze&nbsp;nieprzerobionych<br>
+podformuł.</tt></dd></dl>
+
+<dl><dt><a name="DisjunctionClause-__str__"><strong>__str__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="DisjunctionClause-allFormulas2str"><strong>allFormulas2str</strong></a>(self, fformatter)</dt><dd><tt>wypisuje&nbsp;wszystkie&nbsp;podformuły&nbsp;w&nbsp;<a href="#Clause">Clause</a></tt></dd></dl>
+
+<dl><dt><a name="DisjunctionClause-convertStep"><strong>convertStep</strong></a>(self)</dt><dd><tt>kolejny&nbsp;krok&nbsp;konwersji<br>
+&nbsp;<br>
+brana&nbsp;jest&nbsp;kolejna&nbsp;nieurposzczona&nbsp;podformuła&nbsp;z&nbsp;której&nbsp;składa&nbsp;sie&nbsp;<a href="#Clause">Clause</a>.&nbsp;<br>
+Podformuła&nbsp;poddawana&nbsp;jest&nbsp;przekształceniom&nbsp;opartym&nbsp;na&nbsp;prawach&nbsp;DeMorgana,<br>
+powstaje&nbsp;nowy&nbsp;obiekt&nbsp;<a href="#Clause">Clause</a>,&nbsp;albo&nbsp;para&nbsp;nowych&nbsp;obiektów&nbsp;<a href="#Clause">Clause</a>.</tt></dd></dl>
+
+<dl><dt><a name="DisjunctionClause-convertedFormulas2str"><strong>convertedFormulas2str</strong></a>(self, fformatter)</dt><dd><tt>wypisuje&nbsp;podformuły&nbsp;uproszczone&nbsp;(zmienne&nbsp;i&nbsp;stałe&nbsp;logiczne)&nbsp;logicznie&nbsp;w&nbsp;<a href="#Clause">Clause</a></tt></dd></dl>
+
+<dl><dt><a name="DisjunctionClause-isFailure"><strong>isFailure</strong></a>(self)</dt><dd><tt><a href="#Clause">Clause</a>&nbsp;podważa&nbsp;tezę<br>
+&nbsp;<br>
+<a href="#Clause">Clause</a>&nbsp;podważa&nbsp;tezę,&nbsp;że&nbsp;formuła&nbsp;z&nbsp;której&nbsp;powstała&nbsp;jest&nbsp;spełnialna&nbsp;/&nbsp;jest&nbsp;tautologią</tt></dd></dl>
+
+<dl><dt><a name="DisjunctionClause-isResolved"><strong>isResolved</strong></a>(self)</dt><dd><tt>Czy&nbsp;<a href="#Clause">Clause</a>&nbsp;określa&nbsp;sytuację<br>
+&nbsp;<br>
+Znaczy,&nbsp;czy&nbsp;wiadomo&nbsp;cos&nbsp;o&nbsp;formule&nbsp;z&nbsp;której&nbsp;powstało&nbsp;<a href="#Clause">Clause</a>,&nbsp;na&nbsp;podstawie&nbsp;danej<br>
+<a href="#Clause">Clause</a>.&nbsp;(czy&nbsp;owa&nbsp;formuła&nbsp;jest&nbsp;/&nbsp;nie&nbsp;jest&nbsp;spełnialna,&nbsp;jest&nbsp;/&nbsp;nie&nbsp;jest&nbsp;tautologią)</tt></dd></dl>
+
+<dl><dt><a name="DisjunctionClause-isSuccess"><strong>isSuccess</strong></a>(self)</dt><dd><tt><a href="#Clause">Clause</a>&nbsp;potwierdza&nbsp;tezę<br>
+&nbsp;<br>
+<a href="#Clause">Clause</a>&nbsp;potwierdza&nbsp;tezę,&nbsp;że&nbsp;formuła&nbsp;z&nbsp;której&nbsp;powstała&nbsp;jest&nbsp;spełnialna&nbsp;/&nbsp;jest&nbsp;tautologią</tt></dd></dl>
+
+<dl><dt><a name="DisjunctionClause-lconsts2str"><strong>lconsts2str</strong></a>(self, fformatter)</dt><dd><tt>wypisuje&nbsp;stałe&nbsp;logicznie&nbsp;w&nbsp;<a href="#Clause">Clause</a></tt></dd></dl>
+
+<dl><dt><a name="DisjunctionClause-lvars2str"><strong>lvars2str</strong></a>(self, fformatter)</dt><dd><tt>wypisuje&nbsp;zmienne&nbsp;logicznie&nbsp;w&nbsp;<a href="#Clause">Clause</a></tt></dd></dl>
+
+<dl><dt><a name="DisjunctionClause-status2str"><strong>status2str</strong></a>(self, fformatter, statusPrefix<font color="#909090">=''</font>, onlyResolved<font color="#909090">=False</font>)</dt><dd><tt>wypisuje&nbsp;status&nbsp;<a href="#Clause">Clause</a></tt></dd></dl>
+
+<dl><dt><a name="DisjunctionClause-unconvertedFormulas2str"><strong>unconvertedFormulas2str</strong></a>(self, fformatter)</dt><dd><tt>wypisuje&nbsp;podformuły&nbsp;nieuproszczone&nbsp;w&nbsp;<a href="#Clause">Clause</a></tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="liprojekt.conversion.clauses.html#Clause">Clause</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>__warningregistry__</strong> = {('the sets module is deprecated', &lt;type 'exceptions.DeprecationWarning'&gt;, 19): True}</td></tr></table>
+</body></html>

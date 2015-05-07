@@ -1,0 +1,134 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module liprojekt.parsing.parsers</title>
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="liprojekt.html"><font color="#ffffff">liprojekt</font></a>.<a href="liprojekt.parsing.html"><font color="#ffffff">parsing</font></a>.parsers</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/pawel/Programowanie/Lokalne_instalacje/lib/python2.7/site-packages/liprojekt/parsing/parsers.py">/home/pawel/Programowanie/Lokalne_instalacje/lib/python2.7/site-packages/liprojekt/parsing/parsers.py</a></font></td></tr></table>
+    <p><tt>Created&nbsp;on&nbsp;02-03-2013<br>
+&nbsp;<br>
+@author:&nbsp;pawel<br>
+&nbsp;<br>
+Moduł&nbsp;zawiera&nbsp;narzędzia&nbsp;do&nbsp;parsowania&nbsp;łańcuchów&nbsp;znaków&nbsp;na<br>
+formuły&nbsp;logiczne&nbsp;klasy&nbsp;fomulas.Formula</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="liprojekt.parsing.myparsing.html">liprojekt.parsing.myparsing</a><br>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="__builtin__.html#object">__builtin__.object</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="liprojekt.parsing.parsers.html#LogicExprParser">LogicExprParser</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="liprojekt.parsing.parsers.html#DefaultLogicExprParser">DefaultLogicExprParser</a>
+</font></dt></dl>
+</dd>
+</dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="DefaultLogicExprParser">class <strong>DefaultLogicExprParser</strong></a>(<a href="liprojekt.parsing.parsers.html#LogicExprParser">LogicExprParser</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Domyślny&nbsp;parser&nbsp;formuł&nbsp;logicznych<br>
+&nbsp;<br>
+Parser&nbsp;wykorzystuje&nbsp;bibliotekę&nbsp;pyparsing.<br>
+&nbsp;<br>
+Gramatyka&nbsp;z&nbsp;godnie&nbsp;z&nbsp;którą&nbsp;parsowane&nbsp;są&nbsp;łańcych&nbsp;zawierające<br>
+formuły&nbsp;logiczne&nbsp;jest&nbsp;następująca:<br>
+&nbsp;<br>
+========&nbsp;BNF:&nbsp;boolean&nbsp;exporession&nbsp;========<br>
+&nbsp;<br>
+order&nbsp;of&nbsp;precedence<br>
+1)&nbsp;NOT&nbsp;&nbsp;&nbsp;&nbsp;(-)&nbsp;&nbsp;&nbsp;&nbsp;negation<br>
+2)&nbsp;AND&nbsp;&nbsp;&nbsp;&nbsp;(&amp;)&nbsp;&nbsp;&nbsp;&nbsp;conjunction<br>
+3)&nbsp;OR&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(|)&nbsp;&nbsp;&nbsp;&nbsp;disjunction<br>
+4)&nbsp;IMP&nbsp;&nbsp;&nbsp;&nbsp;(=&gt;)&nbsp;&nbsp;&nbsp;implication<br>
+5)&nbsp;EQU&nbsp;&nbsp;&nbsp;&nbsp;(&lt;=&gt;)&nbsp;&nbsp;equivalence<br>
+&nbsp;<br>
+BNF<br>
+&nbsp;<br>
+&lt;expression&gt;&nbsp;::=&nbsp;&lt;imp-term&gt;&nbsp;[EQL&nbsp;&lt;imp-term&gt;]*<br>
+&lt;imp-term&gt;&nbsp;&nbsp;&nbsp;::=&nbsp;&lt;or-term&gt;&nbsp;[EQL&nbsp;&lt;or-term&gt;]*<br>
+&lt;or-term&gt;&nbsp;&nbsp;&nbsp;&nbsp;::=&nbsp;&lt;and-term&gt;&nbsp;[EQL&nbsp;&lt;and-term&gt;]*<br>
+&lt;and-term&gt;&nbsp;&nbsp;&nbsp;::=&nbsp;&lt;not-factor&gt;&nbsp;[EQL&nbsp;&lt;not-factor&gt;]*<br>
+&lt;not-factor&gt;&nbsp;::=&nbsp;[NOT]&nbsp;&lt;factor&gt;&nbsp;<br>
+&lt;factor&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;::=&nbsp;&lt;literal&gt;&nbsp;|&nbsp;&lt;variable&gt;&nbsp;|&nbsp;&lt;expression&gt;<br>
+&lt;literal&gt;&nbsp;&nbsp;&nbsp;&nbsp;::=&nbsp;0&nbsp;|&nbsp;1<br>
+&lt;variable&gt;&nbsp;&nbsp;&nbsp;::=&nbsp;&lt;alpha&gt;+[&lt;alpha&gt;&nbsp;|&nbsp;&lt;uscore&gt;&nbsp;|&nbsp;&lt;digit&gt;]*<br>
+-------------------------------------------------------------<br>
+&lt;alpha&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;::=&nbsp;'A'..'Z'&nbsp;'a'..'z'<br>
+&lt;uscore&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;::=&nbsp;'_'<br>
+&lt;digit&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;::=&nbsp;'0'..'9'<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="liprojekt.parsing.parsers.html#DefaultLogicExprParser">DefaultLogicExprParser</a></dd>
+<dd><a href="liprojekt.parsing.parsers.html#LogicExprParser">LogicExprParser</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="DefaultLogicExprParser-__init__"><strong>__init__</strong></a>(self, alphabet)</dt></dl>
+
+<dl><dt><a name="DefaultLogicExprParser-parseFile"><strong>parseFile</strong></a>(self, logicExprFileName)</dt><dd><tt>Zwraca&nbsp;formułę&nbsp;logiczną&nbsp;klasy&nbsp;formulas.Formula,<br>
+po&nbsp;sparsowaniu&nbsp;łańcucha&nbsp;znajdującego&nbsp;się&nbsp;w&nbsp;pliku&nbsp;o&nbsp;nazwie<br>
+logicExprFileName</tt></dd></dl>
+
+<dl><dt><a name="DefaultLogicExprParser-parseString"><strong>parseString</strong></a>(self, logicExprStr)</dt><dd><tt>Zwraca&nbsp;formułę&nbsp;logiczną&nbsp;klasy&nbsp;formulas.Formula,<br>
+po&nbsp;sparsowaniu&nbsp;łańcucha&nbsp;logicExprStr</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="liprojekt.parsing.parsers.html#LogicExprParser">LogicExprParser</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="LogicExprParser">class <strong>LogicExprParser</strong></a>(<a href="__builtin__.html#object">__builtin__.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Klasa&nbsp;wirtualna,&nbsp;bazowa&nbsp;dla&nbsp;parserów&nbsp;formuł&nbsp;logicznych<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>alphanums</strong> = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'<br>
+<strong>alphas</strong> = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'<br>
+<strong>opAssoc</strong> = &lt;pyparsing._Constants object&gt;</td></tr></table>
+</body></html>

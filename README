@@ -1,0 +1,40 @@
+Projekt I LI, Paweł Szynkiewicz
+
+* Nazwa projektu
+* Spis plików
+* Instalacja
+* Generowanie dokumentacji
+* Uruchamianie
+
+Nazwa projektu: liprojekt
+
+Pliki w projekcie:
+bin                 -> pliki wykonywalne
+bin/liprojekt       -> plik wykonywalny programu
+liprojekt           -> kod programu
+doc                 -> dokumentacja
+doc/liprojekt.html  -> główna storna dokumnetacji
+doc/gendoc.py       -> generator dokumnetacji
+setup.py            -> instalator
+test_output.pl      -> wyniki przykładowych testów
+
+Instalacja:
+
+`$./setup.py install --prefix=PREFIX`
+upewnić się że:
+PREFIX/lib/python-*.*/site-packages/ jest w scieżce PYTHONPATH
+PREFIX/bin                           jest w scieżce PYTH
+
+Generowanie dokumentacji:
+Po instalacji przejść do folderu doc.
+Wywołać program gendoc.py
+$./gendoc.py
+
+Uruchamianie:
+
+Po instalacji:
+
+$liprojekt -h
+$liprojekt test <- wykanoanie przykładowych testów
+
+

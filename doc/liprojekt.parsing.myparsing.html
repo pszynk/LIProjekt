@@ -1,0 +1,55 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module liprojekt.parsing.myparsing</title>
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="liprojekt.html"><font color="#ffffff">liprojekt</font></a>.<a href="liprojekt.parsing.html"><font color="#ffffff">parsing</font></a>.myparsing</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/pawel/Programowanie/Lokalne_instalacje/lib/python2.7/site-packages/liprojekt/parsing/myparsing.py">/home/pawel/Programowanie/Lokalne_instalacje/lib/python2.7/site-packages/liprojekt/parsing/myparsing.py</a></font></td></tr></table>
+    <p><tt>Moduł&nbsp;zawiera&nbsp;lekką&nbsp;modyfikację&nbsp;funkcji<br>
+operatorPrecedence&nbsp;z&nbsp;biblioteki&nbsp;pyparsing<br>
+Funkcja&nbsp;tworzy&nbsp;gramatkykę&nbsp;z&nbsp;hierarchią&nbsp;operatorów<br>
+&nbsp;<br>
+Oryginalnie&nbsp;funkcja&nbsp;pozwalała&nbsp;na&nbsp;jeden&nbsp;typ&nbsp;nawiasów.<br>
+Dodanie&nbsp;obsługi&nbsp;każdego&nbsp;typy&nbsp;nawiasów</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-operatorPrecedence"><strong>operatorPrecedence</strong></a>(baseExpr, opList, parentheses<font color="#909090">=[]</font>)</dt><dd><tt>Helper&nbsp;method&nbsp;for&nbsp;constructing&nbsp;grammars&nbsp;of&nbsp;expressions&nbsp;made&nbsp;up&nbsp;of<br>
+operators&nbsp;working&nbsp;in&nbsp;a&nbsp;precedence&nbsp;hierarchy.&nbsp;&nbsp;Operators&nbsp;may&nbsp;be&nbsp;unary&nbsp;or<br>
+binary,&nbsp;left-&nbsp;or&nbsp;right-associative.&nbsp;&nbsp;Parse&nbsp;actions&nbsp;can&nbsp;also&nbsp;be&nbsp;attached<br>
+to&nbsp;operator&nbsp;expressions.<br>
+&nbsp;<br>
+Parameters:<br>
+&nbsp;-&nbsp;baseExpr&nbsp;-&nbsp;expression&nbsp;representing&nbsp;the&nbsp;most&nbsp;basic&nbsp;element&nbsp;for&nbsp;the&nbsp;nested<br>
+&nbsp;-&nbsp;opList&nbsp;-&nbsp;list&nbsp;of&nbsp;tuples,&nbsp;one&nbsp;for&nbsp;each&nbsp;operator&nbsp;precedence&nbsp;level&nbsp;in&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;expression&nbsp;grammar;&nbsp;each&nbsp;tuple&nbsp;is&nbsp;of&nbsp;the&nbsp;form<br>
+&nbsp;&nbsp;&nbsp;(opExpr,&nbsp;numTerms,&nbsp;rightLeftAssoc,&nbsp;parseAction),&nbsp;where:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;opExpr&nbsp;is&nbsp;the&nbsp;pyparsing&nbsp;expression&nbsp;for&nbsp;the&nbsp;operator;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;may&nbsp;also&nbsp;be&nbsp;a&nbsp;string,&nbsp;which&nbsp;will&nbsp;be&nbsp;converted&nbsp;to&nbsp;a&nbsp;Literal;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;numTerms&nbsp;is&nbsp;3,&nbsp;opExpr&nbsp;is&nbsp;a&nbsp;tuple&nbsp;of&nbsp;two&nbsp;expressions,&nbsp;for&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;two&nbsp;operators&nbsp;separating&nbsp;the&nbsp;3&nbsp;terms<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;numTerms&nbsp;is&nbsp;the&nbsp;number&nbsp;of&nbsp;terms&nbsp;for&nbsp;this&nbsp;operator&nbsp;(must<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;be&nbsp;1,&nbsp;2,&nbsp;or&nbsp;3)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;rightLeftAssoc&nbsp;is&nbsp;the&nbsp;indicator&nbsp;whether&nbsp;the&nbsp;operator&nbsp;is<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;right&nbsp;or&nbsp;left&nbsp;associative,&nbsp;using&nbsp;the&nbsp;pyparsing-defined<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;constants&nbsp;opAssoc.RIGHT&nbsp;and&nbsp;opAssoc.LEFT.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;parseAction&nbsp;is&nbsp;the&nbsp;parse&nbsp;action&nbsp;to&nbsp;be&nbsp;associated&nbsp;with<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;expressions&nbsp;matching&nbsp;this&nbsp;operator&nbsp;expression&nbsp;(the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;parse&nbsp;action&nbsp;tuple&nbsp;member&nbsp;may&nbsp;be&nbsp;omitted)</tt></dd></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>opAssoc</strong> = &lt;pyparsing._Constants object&gt;</td></tr></table>
+</body></html>

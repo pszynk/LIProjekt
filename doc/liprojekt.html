@@ -1,0 +1,164 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: package liprojekt</title>
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>liprojekt</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/pawel/Programowanie/Lokalne_instalacje/lib/python2.7/site-packages/liprojekt/__init__.py">/home/pawel/Programowanie/Lokalne_instalacje/lib/python2.7/site-packages/liprojekt/__init__.py</a></font></td></tr></table>
+    <p><tt>Paczka&nbsp;z&nbsp;kodem&nbsp;aplikacji&nbsp;LIProjekt,&nbsp;do&nbsp;weryfikowania<br>
+spełnialności&nbsp;formuły&nbsp;logicznej&nbsp;i&nbsp;sprawdzania,&nbsp;czy&nbsp;formuła<br>
+logicznja&nbsp;jest&nbsp;tautologią<br>
+&nbsp;<br>
+1)&nbsp;Spis&nbsp;plików&nbsp;z&nbsp;kodem<br>
+2)&nbsp;Instrukcja&nbsp;obsługi<br>
+3)&nbsp;Opis&nbsp;działania<br>
+4)&nbsp;Testy<br>
+&nbsp;<br>
+Ad&nbsp;1.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;liprojekt/<br>
+&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;conversion<br>
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;├──&nbsp;clauses.py<br>
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;├──&nbsp;formatting.py<br>
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;├──&nbsp;formulas.py<br>
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;├──&nbsp;recording.py<br>
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;└──&nbsp;verification.py<br>
+&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;interface<br>
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;└──&nbsp;interface.py<br>
+&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;parsing<br>
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;├──&nbsp;alphabets.py<br>
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;├──&nbsp;myparsing.py<br>
+&nbsp;&nbsp;&nbsp;&nbsp;│  &nbsp;└──&nbsp;parsers.py<br>
+&nbsp;&nbsp;&nbsp;&nbsp;└──&nbsp;tests<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└──&nbsp;tests.py<br>
+&nbsp;<br>
+Ad&nbsp;2.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Program&nbsp;pozwala&nbsp;na&nbsp;wczytanie&nbsp;formuły&nbsp;logicznej&nbsp;z&nbsp;wjeści&nbsp;lub&nbsp;z&nbsp;pliku.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;W&nbsp;celu&nbsp;poznania&nbsp;składni&nbsp;w&nbsp;jakiej&nbsp;powinny&nbsp;być&nbsp;pisane&nbsp;formuły<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;należy&nbsp;uruchomić&nbsp;program&nbsp;z&nbsp;opcją&nbsp;-l&nbsp;[nazwa&nbsp;wybranej&nbsp;składni]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(obecnie&nbsp;program&nbsp;obługije&nbsp;dwie&nbsp;składnie&nbsp;WORD&nbsp;i&nbsp;SYMBOLIC)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`liprojekt&nbsp;-l&nbsp;WORD`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Aby&nbsp;przetestować&nbsp;program&nbsp;dostępną&nbsp;paczką&nbsp;testów,&nbsp;należy&nbsp;uruchomić&nbsp;program<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;z&nbsp;parametrem&nbsp;test<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`liprojekt&nbsp;test`&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;usage:&nbsp;LIProjekt&nbsp;[-h]&nbsp;(-f&nbsp;FORMULA&nbsp;|&nbsp;-i&nbsp;INPUT&nbsp;|&nbsp;-l&nbsp;[{DEFAULT,WORD,SYMBOLIC}])<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-a&nbsp;{DEFAULT,WORD,SYMBOLIC}]&nbsp;[-o&nbsp;OUTPUT&nbsp;|&nbsp;-O&nbsp;OUTPUT]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[-g&nbsp;GRAPH&nbsp;|&nbsp;-t]&nbsp;[-v]&nbsp;[-d]&nbsp;[--log&nbsp;LOG]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;optional&nbsp;arguments:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-h,&nbsp;--help&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;show&nbsp;this&nbsp;help&nbsp;message&nbsp;and&nbsp;exit<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-f&nbsp;FORMULA,&nbsp;--formula&nbsp;FORMULA<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;formuła&nbsp;do&nbsp;weryfikacji&nbsp;(jezeli&nbsp;zawiera&nbsp;spacje&nbsp;nalezy<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;umiescic&nbsp;ja&nbsp;w&nbsp;"")&nbsp;(default:&nbsp;None)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-i&nbsp;INPUT,&nbsp;--input&nbsp;INPUT<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nazwa&nbsp;pliku&nbsp;z&nbsp;formula&nbsp;do&nbsp;weryfikacji&nbsp;(default:&nbsp;None)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-l&nbsp;[{DEFAULT,WORD,SYMBOLIC}],&nbsp;--legend&nbsp;[{DEFAULT,WORD,SYMBOLIC}]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;legenda&nbsp;znakow&nbsp;alfabetu&nbsp;(default:&nbsp;None)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-o&nbsp;OUTPUT,&nbsp;--output&nbsp;OUTPUT<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nazwa&nbsp;pliku&nbsp;do&nbsp;ktorego&nbsp;zapisany&nbsp;bedzie&nbsp;wynik<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;weryfikacji&nbsp;domyslnie&nbsp;na&nbsp;standardowe&nbsp;wyjscie&nbsp;(default:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;None)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-O&nbsp;OUTPUT,&nbsp;--Output&nbsp;OUTPUT<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nazwa&nbsp;pliku&nbsp;do&nbsp;ktorego&nbsp;zapisany&nbsp;bedzie&nbsp;wynik<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;weryfikacji&nbsp;domyslnie&nbsp;na&nbsp;standardowe&nbsp;wyjscie&nbsp;(default:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;None)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-g&nbsp;GRAPH,&nbsp;--graph&nbsp;GRAPH<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nazwa&nbsp;pliku&nbsp;w&nbsp;formacie&nbsp;.png&nbsp;z&nbsp;drzewem&nbsp;przetwarzania<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[NIE&nbsp;ZAIMPL.&nbsp;W&nbsp;TEJ&nbsp;WERSJI]&nbsp;(default:&nbsp;None)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-t,&nbsp;--text&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;czy&nbsp;zapisywac&nbsp;kroki&nbsp;przetwarzania&nbsp;w&nbsp;postaci&nbsp;teksowej<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(default:&nbsp;False)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-a&nbsp;{DEFAULT,WORD,SYMBOLIC},&nbsp;--alphabet&nbsp;{DEFAULT,WORD,SYMBOLIC}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;zestaw&nbsp;znaków&nbsp;na&nbsp;do&nbsp;reprezentowania&nbsp;formuł<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;logicznych&nbsp;(default:&nbsp;DEFAULT)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-v,&nbsp;--verbose&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;czy&nbsp;wypisywac&nbsp;dodatkowe&nbsp;informacje&nbsp;podczas&nbsp;dzialania<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;programu&nbsp;(default:&nbsp;False)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-d,&nbsp;--debug&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;czy&nbsp;wypisywac&nbsp;dodatkowe&nbsp;komunikaty&nbsp;DEBUG&nbsp;(default:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;False)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--log&nbsp;LOG&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nazwa&nbsp;pliku&nbsp;do&nbsp;którego&nbsp;wypisane&nbsp;zostana&nbsp;komunikaty<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(default:&nbsp;None)<br>
+&nbsp;<br>
+3)&nbsp;Opis&nbsp;działania<br>
+-&nbsp;Wejściowa&nbsp;formuła&nbsp;logiczna&nbsp;to&nbsp;F<br>
+&nbsp;<br>
+-&nbsp;Aby&nbsp;sprawdzić&nbsp;czy&nbsp;F&nbsp;jest&nbsp;spełnialna,&nbsp;należy&nbsp;doprowadzić&nbsp;F&nbsp;do&nbsp;postaci&nbsp;DNF,<br>
+&nbsp;&nbsp;jeżeli&nbsp;podczas&nbsp;tworzenia&nbsp;klauzul&nbsp;koniunkcyjnych&nbsp;nie&nbsp;natrafimy&nbsp;w&nbsp;jednej&nbsp;z&nbsp;nich<br>
+&nbsp;&nbsp;na&nbsp;zmienną&nbsp;logiczną&nbsp;i&nbsp;jej&nbsp;zaprzeczenie,&nbsp;to&nbsp;formuła&nbsp;jest&nbsp;spełnialna<br>
+&nbsp;&nbsp;<br>
+-&nbsp;Aby&nbsp;sprawdzić&nbsp;czy&nbsp;F&nbsp;jest&nbsp;tautologią,&nbsp;należy&nbsp;doprowadzić&nbsp;F&nbsp;do&nbsp;postaci&nbsp;CNF,<br>
+&nbsp;&nbsp;jeżeli&nbsp;podczas&nbsp;tworzenia&nbsp;klauzul&nbsp;dysjunkcujnych&nbsp;w&nbsp;każdej&nbsp;z&nbsp;nich&nbsp;natrafimy<br>
+&nbsp;&nbsp;na&nbsp;zmienną&nbsp;logiczną&nbsp;i&nbsp;jej&nbsp;zaprzeczenie,&nbsp;to&nbsp;formuła&nbsp;jest&nbsp;tautologią<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;Do&nbsp;tworzenia&nbsp;klauzul:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;(koniunkcyjnej&nbsp;/&nbsp;dysjunkcujnej)<br>
+&nbsp;&nbsp;wykorzystywana&nbsp;jest&nbsp;klasa:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;(conversion.clauses.ConjunctionClause&nbsp;/&nbsp;conversion.clauses.DisjunctionClause)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;(CC&nbsp;/&nbsp;DC)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;Są&nbsp;to&nbsp;półprodukty&nbsp;z&nbsp;kótrych&nbsp;powstają&nbsp;właściwe&nbsp;klauzule.<br>
+&nbsp;&nbsp;Obie&nbsp;klasy&nbsp;mają&nbsp;metode&nbsp;convertStep&nbsp;która&nbsp;upraszcza&nbsp;znajdującą&nbsp;się&nbsp;w&nbsp;niej&nbsp;<br>
+&nbsp;&nbsp;formułę&nbsp;i&nbsp;zwraca&nbsp;klauzule&nbsp;lub&nbsp;parę&nbsp;klauzul<br>
+&nbsp;&nbsp;Przykład:<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;F&nbsp;=&nbsp;(p&nbsp;&amp;&nbsp;~p)&nbsp;=&gt;&nbsp;q<br>
+&nbsp;&nbsp;CC(F).convertStep&nbsp;=&nbsp;[CC(~p&nbsp;|&nbsp;p),&nbsp;CC(q)]&nbsp;&lt;-&nbsp;rozbicie&nbsp;na&nbsp;dwie&nbsp;klauzule<br>
+&nbsp;&nbsp;DC(F).convertStep&nbsp;=&nbsp;[DC(q,&nbsp;(~p&nbsp;|&nbsp;p))]&nbsp;&nbsp;&nbsp;&lt;-&nbsp;powstanie&nbsp;jednej&nbsp;klauzuli&nbsp;<br>
+&nbsp;<br>
+&nbsp;&nbsp;Tworzone&nbsp;jest&nbsp;drzewo&nbsp;konwersji&nbsp;T<br>
+&nbsp;&nbsp;Za&nbsp;korzeń&nbsp;drzewa&nbsp;brane&nbsp;jest&nbsp;C(T)&nbsp;&nbsp;(CC&nbsp;dla&nbsp;DNF,&nbsp;DC&nbsp;dla&nbsp;CNF)<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;algorytm&nbsp;jest&nbsp;następujący:<br>
+&nbsp;&nbsp;1)&nbsp;weź&nbsp;liść&nbsp;drzewa&nbsp;L<br>
+&nbsp;&nbsp;2)&nbsp;Czy&nbsp;L&nbsp;spełnia&nbsp;warunek&nbsp;STOP<br>
+&nbsp;&nbsp;3)&nbsp;NIE:<br>
+&nbsp;&nbsp;4)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wykonaj&nbsp;L.convertStep&nbsp;=&nbsp;[a,&nbsp;b]<br>
+&nbsp;&nbsp;5)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ustaw&nbsp;a,&nbsp;b&nbsp;jako&nbsp;synów&nbsp;L<br>
+&nbsp;&nbsp;6)&nbsp;TAK:<br>
+&nbsp;&nbsp;7)&nbsp;&nbsp;&nbsp;&nbsp;czy&nbsp;L&nbsp;decyduje&nbsp;o&nbsp;wyniku?<br>
+&nbsp;&nbsp;8)&nbsp;&nbsp;&nbsp;&nbsp;TAK<br>
+&nbsp;&nbsp;9)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Podaj&nbsp;wynik&nbsp;zgodny&nbsp;z&nbsp;L,&nbsp;przerwij&nbsp;iteracje<br>
+&nbsp;&nbsp;10)&nbsp;&nbsp;&nbsp;NIE<br>
+&nbsp;&nbsp;11)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Kontynuj&nbsp;algorytm<br>
+&nbsp;&nbsp;<br>
+&nbsp;&nbsp;warunki&nbsp;STOP&nbsp;dla&nbsp;DNF&nbsp;(spełnialność):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.&nbsp;klauzula&nbsp;zawiera&nbsp;zmienną&nbsp;i&nbsp;jej&nbsp;negacje&nbsp;(nie&nbsp;istjeje&nbsp;spełniające&nbsp;ją&nbsp;wartościowanie)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.&nbsp;klauzula&nbsp;NIE&nbsp;zawiera&nbsp;zmiennej&nbsp;i&nbsp;jej&nbsp;negacji&nbsp;(istnieje&nbsp;spełniające&nbsp;ją&nbsp;wartościowanie)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;w&nbsp;przypadku&nbsp;warunku&nbsp;2.&nbsp;algorytm&nbsp;jest&nbsp;przerywany,&nbsp;formuła&nbsp;jest&nbsp;spełnialna<br>
+&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Jeżeli&nbsp;nie&nbsp;ma&nbsp;więcej&nbsp;liści&nbsp;do&nbsp;sprawdzenia,&nbsp;znaczy&nbsp;że&nbsp;wszystkie&nbsp;spełniają&nbsp;1.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;czyli,&nbsp;klauzula&nbsp;jest&nbsp;niespełnialna<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;warunki&nbsp;STOP&nbsp;dla&nbsp;CNF&nbsp;(spełnialność):<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.&nbsp;klauzula&nbsp;zawiera&nbsp;zmienną&nbsp;i&nbsp;jej&nbsp;negacje&nbsp;(jest&nbsp;tautologią)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.&nbsp;klauzula&nbsp;NIE&nbsp;zawiera&nbsp;zmiennej&nbsp;i&nbsp;jej&nbsp;negacji&nbsp;(nie&nbsp;jest&nbsp;tautologią)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;w&nbsp;przypadku&nbsp;warunku&nbsp;2.&nbsp;algorytm&nbsp;jest&nbsp;przerywany,&nbsp;formuła&nbsp;jest&nbsp;tautologią<br>
+&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;Jeżeli&nbsp;nie&nbsp;ma&nbsp;więcej&nbsp;liści&nbsp;do&nbsp;sprawdzenia,&nbsp;znaczy&nbsp;że&nbsp;wszystkie&nbsp;spełniają&nbsp;1.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;czyli,&nbsp;klauzula&nbsp;jest&nbsp;tautologią<br>
+&nbsp;<br>
+4)&nbsp;testy&nbsp;<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;testy&nbsp;uruchamiane&nbsp;są&nbsp;poleceniem&nbsp;`liprojekt&nbsp;test`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;wyniki&nbsp;zapisane&nbsp;są&nbsp;do&nbsp;pliku&nbsp;test_output.txt<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;szczegóły&nbsp;o&nbsp;testach&nbsp;znajdują&nbsp;sie&nbsp;w&nbsp;dokumentacji&nbsp;modułu&nbsp;liprojekt.tests.tests</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Package Contents</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="liprojekt.conversion.html"><strong>conversion</strong>&nbsp;(package)</a><br>
+</td><td width="25%" valign=top><a href="liprojekt.interface.html"><strong>interface</strong>&nbsp;(package)</a><br>
+</td><td width="25%" valign=top><a href="liprojekt.parsing.html"><strong>parsing</strong>&nbsp;(package)</a><br>
+</td><td width="25%" valign=top><a href="liprojekt.tests.html"><strong>tests</strong>&nbsp;(package)</a><br>
+</td></tr></table></td></tr></table>
+</body></html>
